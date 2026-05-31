@@ -93,6 +93,64 @@
   .dark input::placeholder, .dark textarea::placeholder { color: #595959 !important; }
   .dark input:focus, .dark textarea:focus, .dark select:focus { border-color: #B07A43 !important; }
   .dark input:focus-visible, .dark textarea:focus-visible, .dark select:focus-visible { outline-color: #B07A43; }
+  .donation-panel {
+    background:
+      linear-gradient(135deg, rgba(176,122,67,0.10), transparent 42%),
+      rgba(242,239,235,0.72);
+  }
+  .donation-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #0A0A0A;
+    transform: translateY(100%);
+    transition: transform 0.45s cubic-bezier(0.22,1,0.36,1);
+    z-index: 0;
+  }
+  .donation-panel:hover::before,
+  .donation-panel:focus-within::before { transform: translateY(0); }
+  .donation-panel > * { position: relative; z-index: 1; }
+  .donation-panel:hover,
+  .donation-panel:focus-within { border-color: #B07A43 !important; color: #F2EFEB; }
+  .donation-panel:hover .text-primary,
+  .donation-panel:focus-within .text-primary { color: #F2EFEB !important; }
+  .donation-panel:hover .text-secondary,
+  .donation-panel:focus-within .text-secondary { color: #DCAE7A !important; }
+  .donation-panel:hover .donation-copy,
+  .donation-panel:focus-within .donation-copy { color: rgba(242,239,235,0.76) !important; }
+  .donation-panel:hover #donate-submit-btn,
+  .donation-panel:focus-within #donate-submit-btn {
+    background: #F2EFEB !important;
+    border-color: #F2EFEB !important;
+    color: #0A0A0A !important;
+  }
+  .donation-panel:hover .donation-input,
+  .donation-panel:focus-within .donation-input {
+    color: #F2EFEB !important;
+    border-color: rgba(242,239,235,0.62) !important;
+  }
+  .donation-panel:hover .donation-input::placeholder,
+  .donation-panel:focus-within .donation-input::placeholder { color: rgba(242,239,235,0.46) !important; }
+  .dark .donation-panel {
+    background:
+      linear-gradient(135deg, rgba(220,174,122,0.12), transparent 42%),
+      #161616 !important;
+    border-color: #2A2A2A !important;
+  }
+  .dark .donation-panel::before { background: #F2EFEB; }
+  .dark .donation-panel:hover,
+  .dark .donation-panel:focus-within { color: #0A0A0A; border-color: #DCAE7A !important; }
+  .dark .donation-panel:hover .text-primary,
+  .dark .donation-panel:focus-within .text-primary,
+  .dark .donation-panel:hover .text-secondary,
+  .dark .donation-panel:focus-within .text-secondary { color: #0A0A0A !important; }
+  .dark .donation-panel:hover .donation-copy,
+  .dark .donation-panel:focus-within .donation-copy { color: rgba(10,10,10,0.70) !important; }
+  .dark .donation-panel:hover .donation-input,
+  .dark .donation-panel:focus-within .donation-input {
+    color: #0A0A0A !important;
+    border-color: rgba(10,10,10,0.64) !important;
+  }
 
   /* -- Premium glowing section/nav rules --------------------------- */
   .section-rule {
@@ -271,6 +329,56 @@
         <address class="font-black text-headline-sm text-primary not-italic uppercase leading-tight">
           Zwaerdecroonstraat 11,<br/>Rotterdam
         </address>
+      </div>
+
+      <div class="fade-up flex flex-col gap-3" data-delay="0.15">
+        <span class="text-label-lg uppercase text-secondary tracking-widest">
+          <span class="lang-nl">Ondersteun de missie</span><span class="lang-en">Support the mission</span>
+        </span>
+        <div class="donation-panel relative overflow-hidden border-2 border-primary p-5 md:p-6 transition-colors duration-300">
+          <div class="flex flex-col gap-5">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-black text-headline-sm uppercase text-primary">
+                  <span class="lang-nl">Bijdragen</span><span class="lang-en">Contribute</span>
+                </h3>
+                <p class="donation-copy text-body-md text-on-surface-variant mt-2">
+                  <span class="lang-nl">Bepaal zelf je bijdrage. Geen verplichting, pure intentie.</span>
+                  <span class="lang-en">Choose your own contribution. No obligation, pure intention.</span>
+                </p>
+              </div>
+              <span class="material-symbols-outlined text-secondary shrink-0" style="font-size:32px;font-variation-settings:'FILL' 1">volunteer_activism</span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3">
+              <label class="sr-only" for="donation-amount">
+                <span class="lang-nl">Donatiebedrag</span><span class="lang-en">Donation amount</span>
+              </label>
+              <div class="relative flex-grow">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 font-black text-body-lg">€</span>
+                <input
+                  type="number"
+                  id="donation-amount"
+                  min="5"
+                  step="1"
+                  inputmode="decimal"
+                  placeholder="50"
+                  class="donation-input w-full min-h-[52px] bg-transparent border-2 border-primary text-primary text-body-md font-black py-3 pl-10 pr-4 focus:ring-0 focus:border-secondary transition-colors"
+                />
+              </div>
+              <button
+                id="donate-submit-btn"
+                type="button"
+                class="min-h-[52px] bg-primary text-on-primary border-2 border-primary font-black uppercase tracking-widest px-6 py-3 hover:bg-secondary hover:border-secondary transition-colors active:scale-95 flex items-center justify-center gap-2"
+              >
+                <span class="lang-nl">Doneer</span><span class="lang-en">Donate</span>
+                <span class="material-symbols-outlined text-xl">arrow_forward</span>
+              </button>
+            </div>
+
+            <p id="donation-error" class="hidden text-error text-label-lg uppercase tracking-widest" role="alert" aria-live="polite"></p>
+          </div>
+        </div>
       </div>
 
       <div class="fade-up mt-auto hidden md:block pt-12 border-t-2 border-primary" style="opacity:0.35" data-delay="0.2">

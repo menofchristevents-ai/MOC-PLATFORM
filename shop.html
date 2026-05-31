@@ -91,6 +91,18 @@
   .dark .product-img-bg { background: #ECE6DC !important; }
   .product-img-bg { background: #ECE6DC; }
   .dark .shop-divider { border-color: #2A2A2A !important; }
+  .shop-hero-title {
+    font-size: clamp(1.95rem, 8.3vw, 4.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.065em;
+  }
+  @media (min-width: 768px) {
+    .shop-hero-title {
+      font-size: 72px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+  }
 
   /* ── Glow card — no ::after glow ── */
   .glow-card {
@@ -242,7 +254,7 @@
 
   <div class="flex flex-col md:flex-row justify-between items-end gap-6 border-b-2 border-primary pb-3 shop-divider">
     <div>
-      <h1 data-hero-enter class="cinematic-text font-black text-display-lg text-primary uppercase tracking-tighter leading-none">Wapenuitrusting</h1>
+      <h1 data-hero-enter class="cinematic-text shop-hero-title font-black text-primary uppercase">Wapenuitrusting</h1>
       <p class="fade-up text-body-lg text-on-surface-variant max-w-2xl mt-4" data-delay="0.15">
         <span class="lang-nl">Rust jezelf uit met kleding en accessoires ontworpen voor de moderne man van geloof. Stoer, compromisloos en gebouwd om lang mee te gaan.</span>
         <span class="lang-en">Equip yourself with apparel and accessories designed for the modern man of faith. Bold, uncompromising, and built to last.</span>

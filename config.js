@@ -5,7 +5,8 @@
  *
  *  1. MOC_CONFIG.eventbriteTicketsUrl  → nieuwe Eventbrite link
  *  2. MOC_CONFIG.youtubePromoUrl       → nieuwe promo video link
- *  3. MOC_EVENTS.current.*             → flyer, thema, spreker, etc.
+ *  3. MOC_CONFIG.donationUrl           → Stripe donatielink
+ *  4. MOC_EVENTS.current.*             → flyer, thema, spreker, etc.
  *
  *  De rest van de site pikt de wijzigingen automatisch op.
  * ═════════════════════════════════════════════════════════════════════
@@ -21,6 +22,11 @@ window.MOC_CONFIG = {
   // ── Sociale media (eenmalig instellen) ──────────────────────────
   instagramUrl:         "https://www.instagram.com/menofchrist_rotterdam",
   youtubeChannelUrl:    "https://www.youtube.com/c/MenOfChristRotterdam",
+
+  // ── Donaties ────────────────────────────────────────────────────
+  // Vul hier de Stripe Payment Link of toekomstige checkout endpoint in.
+  // Laat leeg totdat de echte link bekend is; de UI toont dan een nette melding.
+  donationUrl:           "",
 };
 
 /**

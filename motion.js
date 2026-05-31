@@ -75,6 +75,50 @@
   }
 
   /* ══════════════════════════════════════════════════════════════════
+     0b. DONATION FLOW — static-safe Stripe handoff
+         GitHub Pages has no backend, so the component validates the
+         amount and opens the configured donation link when available.
+     ══════════════════════════════════════════════════════════════ */
+  function initDonationFlow() {
+    const donateBtn = document.getElementById("donate-submit-btn");
+    const amountInput = document.getElementById("donation-amount");
+    const errorMsg = document.getElementById("donation-error");
+    if (!donateBtn || !amountInput || !errorMsg) return;
+
+    const activeLang = () => document.documentElement.getAttribute("lang") || localStorage.getItem("moc-lang") || "nl";
+    const showError = message => {
+      errorMsg.textContent = message;
+      errorMsg.classList.remove("hidden");
+    };
+
+    donateBtn.addEventListener("click", () => {
+      const amount = Number.parseFloat(amountInput.value);
+      errorMsg.classList.add("hidden");
+      errorMsg.textContent = "";
+
+      if (!Number.isFinite(amount) || amount < 5) {
+        showError(activeLang() === "en" ? "Minimum contribution is EUR 5." : "Minimum bijdrage is EUR 5.");
+        amountInput.focus();
+        return;
+      }
+
+      const donationUrl = window.MOC_CONFIG && window.MOC_CONFIG.donationUrl;
+      if (!donationUrl) {
+        showError(activeLang() === "en" ? "Donation link will be activated soon." : "Donatielink wordt binnenkort geactiveerd.");
+        return;
+      }
+
+      const amountFixed = amount.toFixed(2);
+      const amountCents = String(Math.round(amount * 100));
+      const targetUrl = donationUrl
+        .replace("{amount}", encodeURIComponent(amountFixed))
+        .replace("{amount_cents}", encodeURIComponent(amountCents));
+
+      window.open(targetUrl, "_blank", "noopener,noreferrer");
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
      1.  LENIS — BUTTERY SMOOTH SCROLL
          smoothTouch: false  →  native momentum on iOS/Android
          lerp: 0.1           →  organic deceleration feel
@@ -466,6 +510,7 @@
      ══════════════════════════════════════════════════════════════ */
   function boot() {
     initDynamicLinks();
+    initDonationFlow();
     initLenis();
     initGSAP();
     initPageEntrance();
