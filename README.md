@@ -33,7 +33,7 @@ Publiceer deze map als statische website. Er is geen build step nodig.
 
 - Netlify: publish directory `.` en build command leeg. `netlify.toml` staat al klaar.
 - Vercel: framework `Other`, build command leeg, output/root leeg laten.
-- GitHub Pages: deploy from branch, folder `/root`. `.nojekyll` staat al klaar.
+- GitHub Pages: workflow staat klaar in `.github/workflows/pages.yml`. Zet Pages in GitHub op "GitHub Actions".
 
 ## Maandelijkse updates
 
