@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<script>
+  (function() {
+    const savedDark = localStorage.getItem('moc-dark');
+    if (savedDark === 'true' || (!savedDark && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+    const savedLang = localStorage.getItem('moc-lang') || 'nl';
+    document.documentElement.setAttribute('lang', savedLang);
+  })();
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Evenementen — Men of Christ Rotterdam</title>
+<meta name="description" content="Maandelijkse MOC-bijeenkomst: elke laatste zaterdag 15:00–19:00, Zwaerdecroonstraat 11 Rotterdam. Fellowship, worship, teaching en dinner."/>
+<link rel="canonical" href="https://menofchrist.nl/events.html"/>
+<meta property="og:title" content="Events — Men of Christ"/>
+<meta property="og:description" content="Elke laatste zaterdag van de maand. Rotterdam. Worship, teaching, fellowship en dinner."/>
+<meta property="og:type" content="website"/>
+<meta name="theme-color" content="#0A0A0A"/>
+<link rel="manifest" href="manifest.json"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;800;900&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#0A0A0A", "on-primary": "#F2EFEB",
+          "secondary": "#B07A43", "on-secondary": "#F2EFEB",
+          "secondary-container": "#DCAE7A", "secondary-fixed": "#E2B887",
+          "surface": "#F2EFEB", "surface-container": "#E8E4DE",
+          "surface-container-low": "#EDE9E3", "surface-variant": "#DDD9D3",
+          "on-surface": "#1A1A1A", "on-surface-variant": "#595959",
+          "outline-variant": "#D1CCC5", "error": "#ba1a1a", "background": "#F2EFEB",
+        },
+        borderRadius: { "DEFAULT": "0", "sm": "0", "md": "0", "lg": "0", "xl": "0", "full": "9999px" },
+        spacing: { "stack-lg": "48px", "stack-md": "24px", "stack-sm": "12px", "gutter": "24px" },
+        fontFamily: { "sans": ["Chivo", "sans-serif"] },
+        fontSize: {
+          "display-lg": ["72px", { "lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "900" }],
+          "headline-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+          "headline-lg-mobile": ["36px", { "lineHeight": "1.1", "fontWeight": "800" }],
+          "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+          "headline-sm": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }],
+          "body-lg": ["18px", { "lineHeight": "1.6" }], "body-md": ["16px", { "lineHeight": "1.5" }],
+          "label-lg": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700" }],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .texture-overlay { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999; opacity:0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+  /* ── Serif utility ─────────────────────────────────────────────── */
+  .font-serif { font-family: 'Playfair Display', serif; }
+
+  /* ── Parallax ──────────────────────────────────────────────────── */
+  .parallax-wrap { overflow: hidden; }
+
+  #mobile-menu { display: none; }
+  #mobile-menu.open { display: flex; }
+  a:focus-visible, button:focus-visible { outline: 2px solid #B07A43; outline-offset: 2px; }
+
+  /* Bilingual toggling */
+  html[lang="nl"] .lang-en { display: none !important; }
+  html[lang="en"] .lang-nl { display: none !important; }
+  html[lang="nl"] [data-lang-trigger="nl"] { color: #B07A43 !important; font-weight: 900; }
+  html[lang="en"] [data-lang-trigger="en"] { color: #B07A43 !important; font-weight: 900; }
+
+  /* ── Dark mode overrides ── */
+  .dark header { background: #111111 !important; border-color: #2A2A2A !important; }
+  .dark body   { background: #0A0A0A !important; color: #E8E4DE !important; }
+  .dark .bg-background, .dark main { background: #0A0A0A !important; }
+  .dark .text-primary { color: #C4C0BA !important; }
+  .dark .text-on-surface-variant { color: #999 !important; }
+  .dark .border-primary { border-color: #2A2A2A !important; }
+  .dark nav a { color: #C4C0BA !important; }
+  .dark footer { background: #060606 !important; }
+  .dark .detail-card { background: #161616 !important; border-color: #2A2A2A !important; }
+  .dark .program-row { border-color: #2A2A2A !important; }
+  .dark .flyer-frame { background: #161616 !important; border-color: #2A2A2A !important; }
+
+  .premium-ticket-cta {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    color: #100B05 !important;
+    border: 1px solid rgba(255,240,184,0.70) !important;
+    background:
+      linear-gradient(135deg, #FFF2BF 0%, #E7BE69 34%, #B56F24 100%) !important;
+    box-shadow: 0 14px 34px rgba(181,111,36,0.34), 0 0 0 1px rgba(255,255,255,0.24) inset;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+  }
+  .premium-ticket-cta::before {
+    content: "";
+    position: absolute;
+    inset: -80% -30%;
+    background: linear-gradient(115deg, transparent 36%, rgba(255,255,255,0.72) 48%, transparent 60%);
+    transform: translateX(-70%);
+    transition: transform 0.65s cubic-bezier(0.16,1,0.3,1);
+    z-index: -1;
+  }
+  .premium-ticket-cta:hover {
+    transform: translateY(-2px);
+    filter: saturate(1.08);
+    box-shadow: 0 18px 46px rgba(220,174,122,0.42), 0 0 28px rgba(255,240,184,0.24);
+  }
+  .premium-ticket-cta:hover::before { transform: translateX(70%); }
+  .ticket-glass {
+    border: 1px solid rgba(220,174,122,0.42) !important;
+    background: linear-gradient(135deg, rgba(242,239,235,0.78), rgba(232,228,222,0.50)) !important;
+    backdrop-filter: blur(14px) saturate(130%);
+    -webkit-backdrop-filter: blur(14px) saturate(130%);
+    box-shadow: 0 18px 50px rgba(10,10,10,0.12), inset 0 1px 0 rgba(255,255,255,0.55);
+  }
+  .dark .ticket-glass {
+    background: linear-gradient(135deg, rgba(22,22,22,0.82), rgba(10,10,10,0.54)) !important;
+    box-shadow: 0 18px 52px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.08);
+  }
+
+  /* -- Premium glowing section/nav rules --------------------------- */
+  .section-rule {
+    position: relative;
+    height: 14px;
+    border: none;
+    background: transparent;
+    transform-origin: left center;
+    transform: scaleX(0);
+    overflow: visible;
+  }
+  .section-rule::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at center, rgba(255,244,199,0.95) 0%, rgba(236,191,113,0.92) 18%, rgba(194,130,56,0.48) 44%, rgba(194,130,56,0.10) 68%, transparent 100%),
+      linear-gradient(90deg, transparent 0%, rgba(220,174,122,0.18) 16%, #FFF0B8 50%, rgba(220,174,122,0.18) 84%, transparent 100%);
+    clip-path: polygon(0 46%, 38% 39%, 50% 18%, 62% 39%, 100% 46%, 100% 54%, 62% 61%, 50% 82%, 38% 61%, 0 54%);
+    filter: drop-shadow(0 0 8px rgba(236,191,113,0.70)) drop-shadow(0 0 22px rgba(176,122,67,0.34));
+  }
+  .dark .section-rule::before {
+    background:
+      radial-gradient(ellipse at center, rgba(255,246,208,0.98) 0%, rgba(220,174,122,0.96) 20%, rgba(176,122,67,0.52) 48%, rgba(176,122,67,0.10) 72%, transparent 100%),
+      linear-gradient(90deg, transparent 0%, rgba(220,174,122,0.18) 16%, #FFF0B8 50%, rgba(220,174,122,0.18) 84%, transparent 100%);
+    filter: drop-shadow(0 0 10px rgba(236,191,113,0.78)) drop-shadow(0 0 28px rgba(220,174,122,0.36));
+  }
+  nav a[aria-current="page"], nav a.active-link {
+    position: relative;
+    border-bottom-color: transparent !important;
+  }
+  nav a[aria-current="page"]::after, nav a.active-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -7px;
+    height: 7px;
+    background: linear-gradient(90deg, transparent 0%, rgba(220,174,122,0.35) 20%, #FFF0B8 50%, rgba(220,174,122,0.35) 80%, transparent 100%);
+    clip-path: polygon(0 45%, 40% 35%, 50% 16%, 60% 35%, 100% 45%, 100% 55%, 60% 65%, 50% 84%, 40% 65%, 0 55%);
+    filter: drop-shadow(0 0 8px rgba(236,191,113,0.72));
+    pointer-events: none;
+  }
+/* ── Event flyer bronze frame ── */
+  .flyer-frame {
+    position: relative;
+    border: 4px solid #0A0A0A;
+    padding: 8px;
+    background: #E8E4DE;
+  }
+  .flyer-corner {
+    position: absolute;
+    width: 2rem; height: 2rem;
+    border-color: #B07A43;
+    border-style: solid;
+  }
+  .flyer-corner.tl { top: -6px; left: -6px; border-width: 4px 0 0 4px; }
+  .flyer-corner.tr { top: -6px; right: -6px; border-width: 4px 4px 0 0; }
+  .flyer-corner.bl { bottom: -6px; left: -6px; border-width: 0 0 4px 4px; }
+  .flyer-corner.br { bottom: -6px; right: -6px; border-width: 0 4px 4px 0; }
+
+  /* -- Premium chrome: header/footer separators ------------------- */
+  header {
+    position: sticky;
+    border-bottom-color: transparent !important;
+    background: rgba(242,239,235,0.82) !important;
+    backdrop-filter: blur(16px) saturate(126%);
+    -webkit-backdrop-filter: blur(16px) saturate(126%);
+    box-shadow: 0 12px 36px rgba(10,10,10,0.07);
+  }
+  header::after,
+  footer::before,
+  .cta-band::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 10px;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse at center, rgba(255,244,199,0.88) 0%, rgba(236,191,113,0.66) 22%, rgba(194,130,56,0.18) 54%, transparent 78%),
+      linear-gradient(90deg, transparent 0%, rgba(220,174,122,0.22) 24%, #FFF0B8 50%, rgba(220,174,122,0.22) 76%, transparent 100%);
+    clip-path: polygon(0 47%, 42% 42%, 50% 20%, 58% 42%, 100% 47%, 100% 53%, 58% 58%, 50% 80%, 42% 58%, 0 53%);
+    filter: drop-shadow(0 0 9px rgba(236,191,113,0.58));
+    z-index: 2;
+  }
+  header::after { bottom: -5px; }
+  footer,
+  .cta-band { position: relative; border-top-color: transparent !important; }
+  footer::before,
+  .cta-band::before { top: -5px; }
+  .dark header {
+    background: rgba(10,10,10,0.70) !important;
+    border-bottom-color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: 0 16px 44px rgba(0,0,0,0.34);
+  }
+  .dark footer,
+  .dark .cta-band { border-top-color: transparent !important; border-color: transparent !important; }
+</style>
+<!-- JSON-LD injected dynamically after getNextEventDate() runs -->
+</head>
+<body class="bg-background text-on-surface font-sans antialiased min-h-screen flex flex-col selection:bg-primary selection:text-on-primary">
+<div class="texture-overlay" aria-hidden="true"></div>
+
+<!-- ── HEADER ───────────────────────────────────────────────────── -->
+<header class="w-full sticky top-0 z-50 bg-surface border-b-2 border-primary">
+  <div class="flex justify-between items-center w-full px-6 md:px-16 py-4 max-w-7xl mx-auto">
+    <a class="font-black text-2xl tracking-tighter text-primary" href="index.html">MEN OF CHRIST</a>
+    <nav class="hidden md:flex items-center gap-6">
+      <a class="text-primary text-label-lg uppercase tracking-widest pb-1 hover:opacity-70 transition-opacity" href="index.html">Home</a>
+      <a class="text-secondary font-bold border-b-2 border-secondary text-label-lg uppercase tracking-widest pb-1" href="events.html" aria-current="page"><span class="lang-nl">Evenementen</span><span class="lang-en">Events</span></a>
+      <a class="text-primary text-label-lg uppercase tracking-widest pb-1 hover:opacity-70 transition-opacity" href="about.html"><span class="lang-nl">Over Ons</span><span class="lang-en">About Us</span></a>
+      <a class="text-primary text-label-lg uppercase tracking-widest pb-1 hover:opacity-70 transition-opacity" href="shop.html">Shop</a>
+      <a class="text-primary text-label-lg uppercase tracking-widest pb-1 hover:opacity-70 transition-opacity" href="contact.html">Contact</a>
+    </nav>
+    <div class="hidden md:flex items-center gap-4">
+      <a href="contact.html" data-magnetic class="bg-primary text-on-primary text-label-lg uppercase tracking-widest px-6 py-4 border-2 border-primary hover:opacity-80 transition-opacity">
+        Join Fellowship
+      </a>
+      <button onclick="toggleDark()" id="dark-toggle" aria-label="Toggle dark mode"
+        class="p-2 text-primary border-2 border-primary/30 hover:border-primary transition-colors">
+        <span class="material-symbols-outlined dark-icon-moon" style="font-size:20px">dark_mode</span>
+        <span class="material-symbols-outlined dark-icon-sun hidden" style="font-size:20px">light_mode</span>
+      </button>
+      <div class="flex items-center gap-2 border-l border-primary/20 pl-4 ml-2">
+        <button onclick="setLanguage('nl')" class="font-bold text-label-lg tracking-widest text-primary hover:text-secondary transition-colors" data-lang-trigger="nl">NL</button>
+        <span class="text-primary/30">|</span>
+        <button onclick="setLanguage('en')" class="font-bold text-label-lg tracking-widest text-primary hover:text-secondary transition-colors" data-lang-trigger="en">EN</button>
+      </div>
+    </div>
+    <div class="flex items-center gap-1 md:hidden">
+      <button onclick="toggleDark()" aria-label="Toggle dark mode" class="p-2 text-primary">
+        <span class="material-symbols-outlined dark-icon-moon" style="font-size:24px">dark_mode</span>
+        <span class="material-symbols-outlined dark-icon-sun hidden" style="font-size:24px">light_mode</span>
+      </button>
+      <button id="menu-toggle" class="text-primary p-2" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="material-symbols-outlined" style="font-size:32px">menu</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="flex-col bg-surface border-t-2 border-primary px-6 py-4 gap-4 md:hidden">
+    <a class="text-primary text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="index.html">Home</a>
+    <a class="text-secondary font-bold text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="events.html"><span class="lang-nl">Evenementen</span><span class="lang-en">Events</span></a>
+    <a class="text-primary text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="about.html"><span class="lang-nl">Over Ons</span><span class="lang-en">About Us</span></a>
+    <a class="text-primary text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="shop.html">Shop</a>
+    <a class="text-primary text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="contact.html">Contact</a>
+    <a href="contact.html" class="bg-primary text-on-primary text-label-lg uppercase tracking-widest px-6 py-4 text-center mt-2 block">
+      Join Fellowship
+    </a>
+    <div class="flex justify-center items-center gap-4 py-2 border-t border-outline-variant mt-2">
+      <button onclick="setLanguage('nl')" class="font-bold text-label-lg tracking-widest text-primary hover:text-secondary transition-colors" data-lang-trigger="nl">NL</button>
+      <span class="text-primary/30">|</span>
+      <button onclick="setLanguage('en')" class="font-bold text-label-lg tracking-widest text-primary hover:text-secondary transition-colors" data-lang-trigger="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-6 md:px-16 py-12 min-h-screen w-full">
+
+  <!-- ── HERO: Rotterdam Meeting ───────────────────────────────── -->
+  <section class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center mb-28">
+    <div class="lg:col-span-5 space-y-6 order-2 lg:order-1">
+      <div class="fade-up inline-block bg-primary text-on-primary text-label-lg uppercase tracking-widest px-4 py-2">
+        <span class="lang-nl">Volgende Bijeenkomst</span><span class="lang-en">Next Gathering</span>
+      </div>
+      <h1 data-hero-enter class="cinematic-text font-black text-primary uppercase tracking-tighter leading-none" style="font-size:clamp(2.4rem,6.5vw,4.5rem);overflow:visible;word-break:break-word;">
+        <span class="lang-nl">ROTTERDAM<br/>BIJEEN&shy;KOMST</span>
+        <span class="lang-en">ROTTERDAM<br/>MEETING</span>
+      </h1>
+      <div class="section-rule w-full max-w-xs"></div>
+      <p class="fade-up text-body-lg text-on-surface-variant max-w-md" data-delay="0.1">
+        <span class="lang-nl">Sluit je aan voor een avond van gemeenschap, aanbidding en Bijbels onderwijs. Veranker je geloof met broeders in Christus.</span>
+        <span class="lang-en">Join us for an evening of fellowship, worship, and biblical teaching. Anchor yourself in faith with brothers in Christ.</span>
+      </p>
+
+      <!-- CTA group — ticket + calendar + RSVP + promo -->
+      <div class="fade-up pt-3 flex flex-col sm:flex-row gap-4 flex-wrap" data-delay="0.2">
+        <a href="mailto:Menofchristevents@gmail.com?subject=RSVP%20MOC%20Bijeenkomst" data-magnetic
+          class="bg-primary text-on-primary text-label-lg uppercase tracking-widest px-8 py-4 hover:opacity-80 transition-opacity text-center border-2 border-primary">
+          <span class="lang-nl">MELD JE AAN</span><span class="lang-en">RSVP NOW</span>
+        </a>
+        <a id="moc-ticket-btn" href="https://www.eventbrite.nl/e/men-of-christ-event-tickets-zaterdag-30-mei-tickets-123456789" target="_blank" rel="noopener noreferrer" data-magnetic
+          class="premium-ticket-cta inline-flex items-center justify-center gap-3 text-label-lg uppercase tracking-widest px-8 py-4 text-center">
+          <span class="material-symbols-outlined" style="font-size:20px;font-variation-settings:'FILL' 1">confirmation_number</span><span class="lang-nl">Koop Tickets</span><span class="lang-en">Buy Tickets</span>
+        </a>
+        <a id="calendar-link" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Men%20of%20Christ%20Bijeenkomst&location=Zwaerdecroonstraat%2011%20Rotterdam" target="_blank" rel="noopener noreferrer" data-magnetic
+          class="border-2 border-primary text-primary text-label-lg uppercase tracking-widest px-8 py-4 hover:bg-surface-container transition-colors text-center">
+          <span class="lang-nl">ZET IN CALENDAR</span><span class="lang-en">ADD TO CALENDAR</span>
+        </a>
+      </div>
+
+      <!-- QR code ticket scan -->
+      <div class="fade-up ticket-glass flex items-center gap-6 mt-4 p-4 border-2 border-secondary bg-surface-container-low" data-delay="0.28">
+        <img id="ticket-qr"
+          src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https%3A%2F%2Fwww.eventbrite.nl%2Fe%2Fmen-of-christ-event&bgcolor=EDE9E3&color=0A0A0A&margin=4"
+          alt="QR code tickets" width="80" height="80" style="image-rendering:pixelated;"/>
+        <div>
+          <p class="text-label-lg uppercase text-secondary tracking-widest mb-1">
+            <span class="lang-nl">Scan voor Tickets</span><span class="lang-en">Scan for Tickets</span>
+          </p>
+          <p class="text-body-md text-on-surface-variant">
+            <span class="lang-nl">Eventbrite · Zaterdag · 15:00–19:00</span>
+            <span class="lang-en">Eventbrite · Saturday · 15:00–19:00</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Promo trailer link -->
+      <a id="moc-promo-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer"
+        class="fade-up group flex items-center gap-4 mt-2 text-primary hover:text-secondary transition-colors font-bold uppercase tracking-widest text-label-lg" data-delay="0.36">
+        <span class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform" style="font-variation-settings:'FILL' 1">play_circle</span>
+        <div>
+          <span class="lang-nl">Bekijk de Promo Trailer</span><span class="lang-en">Watch Promo Trailer</span>
+          <p class="text-body-md text-on-surface-variant font-normal normal-case tracking-normal mt-0.5">
+            <span class="lang-nl">Elke maand een nieuwe video op YouTube</span>
+            <span class="lang-en">A new promo video every month on YouTube</span>
+          </p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Event flyer with parallax -->
+    <div class="lg:col-span-7 order-1 lg:order-2">
+      <div class="parallax-wrap flyer-frame w-full aspect-[4/5]">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJuQ-tkqNfG1Rsb3AqDk4vKLkGW7WQPNZ31-gTiXDHY9PS1ez7IxFg5cZO6CkMtiedO3Fg4NPoWU3LYpGboww3ilcH2_cD07EJURItprr2E7uWdaUWpojJq-_m7xBBSb8qcYdu_d3rncLmI9sVeum7E20JMOxxNKynd84Uj2gzAQhF99SZs0uhtyDjgVIuvoV889e3wl-PQUOc5xr0UDJipZwH0jGQ2bex4hByAriObEq6H06woxt9ZFxYycukZb7A4_cAg-LZsHZ5"
+          alt="Men of Christ Event Flyer — My sheep hear my voice"
+          class="parallax-img w-full h-full object-cover"
+          data-parallax-speed="0.10"
+          loading="lazy"
+        />
+        <div class="flyer-corner tl"></div>
+        <div class="flyer-corner tr"></div>
+        <div class="flyer-corner bl"></div>
+        <div class="flyer-corner br"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DETAILS & PROGRAM ─────────────────────────────────────── -->
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-28">
+
+    <div class="stagger-grid detail-card border-2 border-primary p-6 flex flex-col gap-6 bg-surface">
+      <h2 data-stagger-item class="font-black text-headline-md text-primary uppercase">
+        <span class="lang-nl">De Details</span><span class="lang-en">The Details</span>
+      </h2>
+      <div data-stagger-item class="flex items-start gap-4 pb-4 border-b-2 border-surface-variant program-row">
+        <span class="material-symbols-outlined text-3xl text-secondary mt-1">calendar_month</span>
+        <div>
+          <h3 class="text-label-lg uppercase text-on-surface-variant mb-1">
+            <span class="lang-nl">Datum &amp; Tijd</span><span class="lang-en">Date &amp; Time</span>
+          </h3>
+          <p class="font-black text-headline-sm text-primary" id="event-date">—</p>
+          <p class="text-body-md text-on-surface-variant">
+            <span class="lang-nl">15:00 tot 19:00</span><span class="lang-en">15:00 till 19:00</span>
+          </p>
+        </div>
+      </div>
+      <div data-stagger-item class="flex items-start gap-4">
+        <span class="material-symbols-outlined text-3xl text-secondary mt-1">location_on</span>
+        <div>
+          <h3 class="text-label-lg uppercase text-on-surface-variant mb-1">
+            <span class="lang-nl">Locatie</span><span class="lang-en">Location</span>
+          </h3>
+          <p class="font-black text-headline-sm text-primary">Zwaerdecroonstraat 11</p>
+          <p class="text-body-md text-on-surface-variant">
+            <span class="lang-nl">Rotterdam, Nederland</span><span class="lang-en">Rotterdam, Netherlands</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stagger-grid detail-card border-2 border-primary p-6 flex flex-col gap-6 bg-surface">
+      <h2 data-stagger-item class="font-black text-headline-md text-primary uppercase">
+        <span class="lang-nl">Programma</span><span class="lang-en">Program</span>
+      </h2>
+      <ul class="space-y-4">
+        <li data-stagger-item class="flex items-center gap-4 pb-4 border-b-2 border-surface-variant program-row">
+          <span class="text-label-lg text-secondary w-16 font-bold shrink-0">15:00</span>
+          <span class="text-body-lg text-primary font-bold">
+            <span class="lang-nl">Deuren Open &amp; Inloop</span><span class="lang-en">Doors Open &amp; Walk-in</span>
+          </span>
+        </li>
+        <li data-stagger-item class="flex items-center gap-4 pb-4 border-b-2 border-surface-variant program-row">
+          <span class="text-label-lg text-secondary w-16 font-bold shrink-0">15:30</span>
+          <span class="text-body-lg text-primary font-bold">
+            <span class="lang-nl">Aanbidding &amp; Gebed</span><span class="lang-en">Worship &amp; Prayer</span>
+          </span>
+        </li>
+        <li data-stagger-item class="flex items-center gap-4 pb-4 border-b-2 border-surface-variant program-row">
+          <span class="text-label-lg text-secondary w-16 font-bold shrink-0">16:15</span>
+          <span class="text-body-lg text-primary font-bold">
+            <span class="lang-nl">Onderwijssessie</span><span class="lang-en">Teaching Session</span>
+          </span>
+        </li>
+        <li data-stagger-item class="flex items-center gap-4 pb-4 border-b-2 border-surface-variant program-row">
+          <span class="text-label-lg text-secondary w-16 font-bold shrink-0">17:30</span>
+          <span class="text-body-lg text-primary font-bold">
+            <span class="lang-nl">Kleine Groepsdiscussies</span><span class="lang-en">Small Group Discussions</span>
+          </span>
+        </li>
+        <li data-stagger-item class="flex items-center gap-4">
+          <span class="text-label-lg text-secondary w-16 font-bold shrink-0">18:15</span>
+          <span class="text-body-lg text-primary font-bold">
+            <span class="lang-nl">Fellowship &amp; Diner</span><span class="lang-en">Fellowship &amp; Dinner</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────── -->
+<footer class="bg-primary w-full border-t-4 border-secondary">
+  <div class="flex flex-col md:flex-row justify-between items-start px-6 md:px-16 py-12 gap-6 max-w-7xl mx-auto">
+    <div class="flex flex-col gap-3">
+      <span class="font-black text-headline-sm text-secondary">MEN OF CHRIST</span>
+      <p class="text-body-md text-on-primary" style="opacity:0.6">© 2026 MEN OF CHRIST. <span class="lang-nl">VERANKERD IN GELOOF.</span><span class="lang-en">ANCHORED IN FAITH.</span></p>
+    </div>
+    <nav class="flex flex-wrap gap-x-8 gap-y-4">
+      <a class="text-on-primary text-label-lg uppercase hover:text-secondary transition-colors" style="opacity:0.8" href="about.html"><span class="lang-nl">Missie</span><span class="lang-en">Mission</span></a>
+      <a class="text-on-primary text-label-lg uppercase hover:text-secondary transition-colors" style="opacity:0.8" href="about.html#church-identity"><span class="lang-nl">Identiteit</span><span class="lang-en">Identity</span></a>
+      <a class="text-on-primary text-label-lg uppercase hover:text-secondary transition-colors" style="opacity:0.8" href="events.html"><span class="lang-nl">Evenementen</span><span class="lang-en">Events</span></a>
+      <a class="text-on-primary text-label-lg uppercase hover:text-secondary transition-colors" style="opacity:0.8" href="shop.html">Shop</a>
+      <a class="text-on-primary text-label-lg uppercase hover:text-secondary transition-colors" style="opacity:0.8" href="contact.html">Contact</a>
+    </nav>
+    <!-- Social links -->
+    <div class="flex flex-col gap-3">
+      <span class="text-label-lg uppercase text-secondary tracking-widest">Social</span>
+      <a id="moc-footer-instagram" href="https://www.instagram.com/menofchrist_rotterdam" target="_blank" rel="noopener noreferrer"
+         class="flex items-center gap-2 text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8">
+        <span class="material-symbols-outlined" style="font-size:16px">photo_camera</span>Instagram
+      </a>
+      <a id="moc-footer-youtube" href="https://www.youtube.com/c/MenOfChristRotterdam" target="_blank" rel="noopener noreferrer"
+         class="flex items-center gap-2 text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8">
+        <span class="material-symbols-outlined" style="font-size:16px">play_circle</span>YouTube
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ── CDN: Lenis + GSAP + ScrollTrigger + config.js + motion.js ──── -->
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="config.js"></script>
+<script src="motion.js"></script>
+
+<script>
+  /* ── Mobile menu ── */
+  const toggle = document.getElementById('menu-toggle');
+  const menu   = document.getElementById('mobile-menu');
+  toggle.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+    toggle.querySelector('.material-symbols-outlined').textContent = isOpen ? 'close' : 'menu';
+  });
+
+  /* ── Language switcher ── */
+  function setLanguage(lang) {
+    localStorage.setItem('moc-lang', lang);
+    window.location.reload();
+  }
+
+  /* ── Dark mode ── */
+  function toggleDark() {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('moc-dark', isDark);
+    syncDarkIcons();
+  }
+  function syncDarkIcons() {
+    const isDark = document.documentElement.classList.contains('dark');
+    document.querySelectorAll('.dark-icon-moon').forEach(el => el.classList.toggle('hidden', isDark));
+    document.querySelectorAll('.dark-icon-sun').forEach(el  => el.classList.toggle('hidden', !isDark));
+  }
+  syncDarkIcons();
+
+  /* ── Datum Utilities (preserved from original) ── */
+  function getLastSaturdayOfMonth(year, month) {
+    const lastDay = new Date(year, month + 1, 0);
+    const dayOfWeek = lastDay.getDay();
+    const daysToSubtract = (dayOfWeek + 1) % 7;
+    lastDay.setDate(lastDay.getDate() - daysToSubtract);
+    return lastDay;
+  }
+  function getOrdinalSuffix(day) {
+    if (day >= 11 && day <= 13) return 'th';
+    switch (day % 10) {
+      case 1: return 'st'; case 2: return 'nd'; case 3: return 'rd'; default: return 'th';
+    }
+  }
+  function formatDate(d, lang) {
+    const daysEN   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const monthsEN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const daysNL   = ['Zondag','Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag'];
+    const monthsNL = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+    const s = d.getDate();
+    if (lang === 'en') return `${daysEN[d.getDay()]} ${monthsEN[d.getMonth()]} ${s}${getOrdinalSuffix(s)}`;
+    return `${daysNL[d.getDay()]} ${s} ${monthsNL[d.getMonth()]}`;
+  }
+
+  const activeLang = localStorage.getItem('moc-lang') || 'nl';
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function toISOLocal(d, hours, minutes) {
+    return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(hours)}:${pad(minutes)}`;
+  }
+  function toGCalDate(d, hours) {
+    const utcHours = hours - 2;
+    return `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}T${pad(utcHours)}0000Z`;
+  }
+
+  /* ── Bereken volgende evenement (preserved from original) ── */
+  const now = new Date();
+  let next = getLastSaturdayOfMonth(now.getFullYear(), now.getMonth());
+  if (next <= now) {
+    const nm = now.getMonth() === 11 ? 0 : now.getMonth() + 1;
+    const ny = now.getMonth() === 11 ? now.getFullYear() + 1 : now.getFullYear();
+    next = getLastSaturdayOfMonth(ny, nm);
+  }
+
+  document.getElementById('event-date').textContent = formatDate(next, activeLang);
+
+  const calStart   = toGCalDate(next, 15);
+  const calEnd     = toGCalDate(next, 19);
+  const eventTitle = activeLang === 'en' ? 'Men+of+Christ+Gathering' : 'Men+of+Christ+Bijeenkomst';
+  const eventDetails = activeLang === 'en' ? 'MOC+monthly+gathering' : 'MOC+maandelijkse+bijeenkomst';
+  document.getElementById('calendar-link').href =
+    `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${eventTitle}&dates=${calStart}/${calEnd}&details=${eventDetails}&location=Zwaerdecroonstraat+11+Rotterdam`;
+
+  /* ── Wire ticket button + QR code from config.js ── */
+  if (window.MOC_CONFIG) {
+    const ticketUrl = window.MOC_CONFIG.eventbriteTicketsUrl;
+    if (ticketUrl) {
+      const btn = document.getElementById('moc-ticket-btn');
+      if (btn) btn.href = ticketUrl;
+      const qr = document.getElementById('ticket-qr');
+      if (qr) qr.src = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(ticketUrl)}&bgcolor=EDE9E3&color=0A0A0A&margin=4`;
+    }
+    const promoUrl = window.MOC_CONFIG.youtubePromoUrl;
+    if (promoUrl) {
+      const promoLink = document.getElementById('moc-promo-link');
+      if (promoLink) promoLink.href = promoUrl;
+    }
+  }
+
+  /* ── Dynamische JSON-LD (preserved) ── */
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": activeLang === 'en' ? "Men of Christ — Monthly Gathering" : "Men of Christ — Maandelijkse Bijeenkomst",
+    "description": activeLang === 'en' ? "Monthly implementation gathering for Christian men. Fellowship, worship, teaching and dinner." : "Maandelijkse implementatiebijeenkomst voor christelijke mannen. Fellowship, worship, teaching en dinner.",
+    "startDate": toISOLocal(next, 15, 0),
+    "endDate":   toISOLocal(next, 19, 0),
+    "location": {
+      "@type": "Place",
+      "name": "MOC Gathering Ground",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Zwaerdecroonstraat 11",
+        "addressLocality": "Rotterdam",
+        "addressCountry": "NL"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Men of Christ",
+      "url": "https://menofchrist.nl"
+    },
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled"
+  };
+  const ldScript = document.createElement('script');
+  ldScript.type = 'application/ld+json';
+  ldScript.textContent = JSON.stringify(jsonLd);
+  document.head.appendChild(ldScript);
+
+  /* ── Service Worker ── */
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(err => console.error('[SW] Registratie mislukt:', err));
+  }
+</script>
+</body>
+</html>
+

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<script>
+  (function() {
+    const savedLang = localStorage.getItem('moc-lang') || 'nl';
+    document.documentElement.setAttribute('lang', savedLang);
+  })();
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Offline — Men of Christ</title>
+<meta name="robots" content="noindex"/>
+<style>
+  /* Geen externe afhankelijkheden — werkt 100% offline */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #082518;
+    --on-primary: #ffffff;
+    --secondary: #7b5800;
+    --surface: #fcf9f8;
+    --on-surface: #1c1b1b;
+  }
+  html, body { height: 100%; }
+  body {
+    background: var(--surface);
+    color: var(--on-surface);
+    font-family: system-ui, -apple-system, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .topbar {
+    width: 100%;
+    border-bottom: 0;
+    padding: 16px 24px;
+    background: var(--surface);
+  }
+  .topbar-brand {
+    font-weight: 900;
+    font-size: 1.125rem;
+    letter-spacing: -0.04em;
+    color: var(--primary);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 48px 24px;
+    gap: 24px;
+  }
+  .icon {
+    font-size: 4rem;
+    opacity: 0.2;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--primary);
+    color: var(--on-primary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+  }
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: var(--primary);
+    line-height: 1;
+  }
+  h1 span { color: var(--secondary); }
+  p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    max-width: 480px;
+    color: #424843;
+  }
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 12px;
+  }
+  .btn {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    text-decoration: none;
+    border: none;
+  }
+  .btn:hover { opacity: 0.8; }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary { background: var(--primary); color: var(--on-primary); }
+  .btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+  .divider { width: 96px; height: 8px; background: linear-gradient(90deg, transparent, rgba(255,240,184,0.9), transparent); clip-path: polygon(0 47%, 42% 42%, 50% 20%, 58% 42%, 100% 47%, 100% 53%, 58% 58%, 50% 80%, 42% 58%, 0 53%); filter: drop-shadow(0 0 8px rgba(236,191,113,0.45)); }
+  .footer-bar {
+    border-top: 0; position: relative;
+    background: var(--primary);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 16px 24px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  /* -- premium chrome compact ------------------------------------ */
+  .topbar { position: relative; background: rgba(252,249,248,0.88); backdrop-filter: blur(14px) saturate(125%); -webkit-backdrop-filter: blur(14px) saturate(125%); }
+  .topbar::after, .footer-bar::before { content: ""; position: absolute; left: 0; right: 0; height: 8px; background: linear-gradient(90deg, transparent, rgba(255,240,184,0.9), transparent); clip-path: polygon(0 47%, 42% 42%, 50% 20%, 58% 42%, 100% 47%, 100% 53%, 58% 58%, 50% 80%, 42% 58%, 0 53%); filter: drop-shadow(0 0 8px rgba(236,191,113,0.45)); pointer-events: none; }
+  .topbar::after { bottom: -4px; }
+  .footer-bar::before { top: -4px; }
+  /* Bilingual toggling */
+  html[lang="nl"] .lang-en { display: none !important; }
+  html[lang="en"] .lang-nl { display: none !important; }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <a class="topbar-brand" href="/">Men of Christ</a>
+  </div>
+
+  <main class="container" role="main">
+    <div class="icon" aria-hidden="true">⚡</div>
+    <div class="badge">
+      <span class="lang-nl">Verbinding Verbroken</span><span class="lang-en">Connection Lost</span>
+    </div>
+    <h1>
+      <span class="lang-nl">VERBINDING<br/><span>VERLOREN</span></span>
+      <span class="lang-en">CONNECTION<br/><span>LOST</span></span>
+    </h1>
+    <div class="divider"></div>
+    <p>
+      <span class="lang-nl">Je bent momenteel offline. Controleer je internetverbinding en probeer het opnieuw. Eerder bezochte pagina's zijn nog wel beschikbaar.</span>
+      <span class="lang-en">You are currently offline. Please check your internet connection and try again. Previously visited pages are still available.</span>
+    </p>
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="window.location.reload()">
+        <span class="lang-nl">Probeer opnieuw</span><span class="lang-en">Try Again</span>
+      </button>
+      <a class="btn btn-outline" href="/">
+        <span class="lang-nl">Naar Home</span><span class="lang-en">Go Home</span>
+      </a>
+    </div>
+  </main>
+
+  <div class="footer-bar">
+    © 2026 Men of Christ — <span class="lang-nl">Verankerd in Geloof</span><span class="lang-en">Anchored in Faith</span>
+  </div>
+</body>
+</html>

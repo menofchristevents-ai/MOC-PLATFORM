@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<script>
+  (function() {
+    const savedDark = localStorage.getItem('moc-dark');
+    if (savedDark === 'true' || (!savedDark && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+    const savedLang = localStorage.getItem('moc-lang') || 'nl';
+    document.documentElement.setAttribute('lang', savedLang);
+  })();
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Over Ons — Men of Christ | Wij zijn geen kerk.</title>
+<meta name="description" content="Men of Christ is een implementatiegroep, geen kerk. Wij helpen mannen om Bijbelse principes toe te passen in werk, huwelijk en dagelijks leven. Rotterdam."/>
+<link rel="canonical" href="https://menofchrist.nl/about.html"/>
+<meta property="og:title" content="Over Ons — Men of Christ"/>
+<meta property="og:description" content="Wij zijn geen kerk. Wij zijn een broederschap voor mannen die geloof in de praktijk brengen."/>
+<meta property="og:type" content="website"/>
+<meta name="theme-color" content="#0A0A0A"/>
+<link rel="manifest" href="manifest.json"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;800;900&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#0A0A0A", "on-primary": "#F2EFEB",
+          "secondary": "#B07A43", "on-secondary": "#F2EFEB",
+          "secondary-container": "#DCAE7A", "secondary-fixed": "#E2B887",
+          "surface": "#F2EFEB", "surface-container": "#E8E4DE",
+          "surface-container-low": "#EDE9E3", "surface-variant": "#DDD9D3",
+          "on-surface": "#1A1A1A", "on-surface-variant": "#595959",
+          "outline-variant": "#D1CCC5", "error": "#ba1a1a", "background": "#F2EFEB",
+        },
+        borderRadius: { "DEFAULT": "0", "sm": "0", "md": "0", "lg": "0", "xl": "0", "full": "9999px" },
+        spacing: { "stack-lg": "48px", "stack-md": "24px", "stack-sm": "12px", "gutter": "24px" },
+        fontFamily: { "sans": ["Chivo", "sans-serif"] },
+        fontSize: {
+          "display-lg": ["72px", { "lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "900" }],
+          "headline-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+          "headline-lg-mobile": ["36px", { "lineHeight": "1.1", "fontWeight": "800" }],
+          "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+          "headline-sm": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }],
+          "body-lg": ["18px", { "lineHeight": "1.6" }], "body-md": ["16px", { "lineHeight": "1.5" }],
+          "label-lg": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700" }],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .filled-icon { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .texture-overlay { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999; opacity:0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+  /* ── Serif utility ─────────────────────────────────────────────── */
+  .font-serif { font-family: 'Playfair Display', serif; }
+
+  /* ── Parallax ──────────────────────────────────────────────────── */
+  .parallax-wrap { overflow: hidden; }
+
+  #mobile-menu { display: none; }
+  #mobile-menu.open { display: flex; }
+  a:focus-visible, button:focus-visible { outline: 2px solid #B07A43; outline-offset: 2px; }
+
+  /* Bilingual */
+  html[lang="nl"] .lang-en { display: none !important; }
+  html[lang="en"] .lang-nl { display: none !important; }
+  html[lang="nl"] [data-lang-trigger="nl"] { color: #B07A43 !important; font-weight: 900; }
+  html[lang="en"] [data-lang-trigger="en"] { color: #B07A43 !important; font-weight: 900; }
+
+  /* ── Dark mode overrides ── */
+  .dark header { background: #111111 !important; border-color: #2A2A2A !important; }
+  .dark body   { background: #0A0A0A !important; color: #E8E4DE !important; }
+  .dark .bg-background, .dark main { background: #0A0A0A !important; }
+  .dark .text-primary { color: #C4C0BA !important; }
+  .dark .text-on-surface-variant { color: #999 !important; }
+  .dark .border-primary { border-color: #2A2A2A !important; }
+  .dark nav a { color: #C4C0BA !important; }
+  .dark footer { background: #060606 !important; }
+  .dark .cta-band { background: #111111 !important; border-color: #B07A43 !important; }
+  .dark .mandate-card-light  { border-color: #2A2A2A !important; background: #161616 !important; }
+  .dark .mandate-card-dark   { background: #111111 !important; border-color: #B07A43 !important; }
+  .dark .mandate-card-dark h3 { color: #E8E4DE !important; }
+  .dark .mandate-card-dark p  { color: #999 !important; }
+  .dark .identity-item h4 { color: #C4C0BA !important; }
+  .dark .identity-item p  { color: #999 !important; }
+  .dark .identity-divider { border-color: #2A2A2A !important; }
+
+  /* ── Glow card — no ::after glow ── */
+  .glow-card {
+    position: relative;
+    transition: border-color 0.35s ease;
+  }
+
+  /* ── Pillar photo slideshow ── */
+  .pillar-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; }
+  .pillar-slide.active { opacity: 1; }
+  .pillar-slide-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 12px 16px;
+    background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 100%);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .pillar-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: rgba(242,239,235,0.35);
+    cursor: pointer; transition: background 0.3s ease, transform 0.3s ease;
+    border: none; padding: 0;
+  }
+  .pillar-dot.active { background: #B07A43; transform: scale(1.4); }
+
+  /* -- Premium glowing section/nav rules --------------------------- */
+  .section-rule {
+    position: relative;
+    height: 14px;
+    border: none;
+    background: transparent;
+    transform-origin: left center;
+    transform: scaleX(0);
+    overflow: visible;
+  }
+  .section-rule::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at center, rgba(255,244,199,0.95) 0%, rgba(236,191,113,0.92) 18%, rgba(194,130,56,0.48) 44%, rgba(194,130,56,0.10) 68%, transparent 100%),
+      linear-gradient(90deg, transparent 0%, rgba(220,174,122,0.18) 16%, #FFF0B8 50%, rgba(220,174,122,0.18) 84%, transparent 100%);
+    clip-path: polygon(0 46%, 38% 39%, 50% 18%, 62% 39%, 100% 46%, 100% 54%, 62% 61%, 50% 82%, 38% 61%, 0 54%);
+    filter: drop-shadow(0 0 8px rgba(236,191,113,0.70)) drop-shadow(0 0 22px rgba(176,122,67,0.34));
+  }
+  .dark .section-rule::before {
+    background:
+      radial-gradient(ellipse at center, rgba(255,246,208,0.98) 0%, rgba(220,174,122,0.96) 20%, rgba(176,122,67,0.52) 48%, rgba(176,122,67,0.10) 72%, transparent 100%),
+      linear-gradient(90deg, transparent 0%, rgba(220,174,122,0.18) 16%, #FFF0B8 50%, rgba(220,174,122,0.18) 84%, transparent 100%);
+    filter: drop-shadow(0 0 10px rgba(236,191,113,0.78)) drop-shadow(0 0 28px rgba(220,174,122,0.36));
+  }
+  nav a[aria-current="page"], nav a.active-link {
+    position: relative;
+    border-bottom-color: transparent !important;
+  }
+  nav a[aria-current="page"]::after, nav a.active-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -7px;
+    height: 7px;
+    background: linear-gradient(90deg, transparent 0%, rgba(220,174,122,0.35) 20%, #FFF0B8 50%, rgba(220,174,122,0.35) 80%, transparent 100%);
+    clip-path: polygon(0 45%, 40% 35%, 50% 16%, 60% 35%, 100% 45%, 100% 55%, 60% 65%, 50% 84%, 40% 65%, 0 55%);
+    filter: drop-shadow(0 0 8px rgba(236,191,113,0.72));
+    pointer-events: none;
+  }
+
+  /* -- Premium chrome: header/footer separators ------------------- */
+  header {
+    position: sticky;
+    border-bottom-color: transparent !important;
+    background: rgba(242,239,235,0.82) !important;
+    backdrop-filter: blur(16px) saturate(126%);
+    -webkit-backdrop-filter: blur(16px) saturate(126%);
+    box-shadow: 0 12px 36px rgba(10,10,10,0.07);
+  }
+  header::after,
+  footer::before,
+  .cta-band::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 10px;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse at center, rgba(255,244,199,0.88) 0%, rgba(236,191,113,0.66) 22%, rgba(194,130,56,0.18) 54%, transparent 78%),
+      linear-gradient(90deg, transparent 0%, rgba(220,174,122,0.22) 24%, #FFF0B8 50%, rgba(220,174,122,0.22) 76%, transparent 100%);
+    clip-path: polygon(0 47%, 42% 42%, 50% 20%, 58% 42%, 100% 47%, 100% 53%, 58% 58%, 50% 80%, 42% 58%, 0 53%);
+    filter: drop-shadow(0 0 9px rgba(236,191,113,0.58));
+    z-index: 2;
+  }
+  header::after { bottom: -5px; }
+  footer,
+  .cta-band { position: relative; border-top-color: transparent !important; }
+  footer::before,
+  .cta-band::before { top: -5px; }
+  .dark header {
+    background: rgba(10,10,10,0.70) !important;
+    border-bottom-color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: 0 16px 44px rgba(0,0,0,0.34);
+  }
+  .dark footer,
+  .dark .cta-band { border-top-color: transparent !important; border-color: transparent !important; }
+</style>
+</head>
+<body class="bg-background text-on-surface font-sans antialiased min-h-screen flex flex-col selection:bg-primary selection:text-white">
+<div class="texture-overlay" aria-hidden="true"></div>
+
+<!-- ── HEADER ───────────────────────────────────────────────────── -->
+<header class="w-full sticky top-0 z-50 bg-surface border-b-2 border-primary">
+  <div class="flex justify-between items-center w-full px-6 md:px-16 py-4 max-w-7xl mx-auto">
+    <a class="font-black text-2xl tracking-tighter text-primary" href="index.html">MEN OF CHRIST</a>
+    <nav class="hidden md:flex items-center gap-6">
+      <a class="text-primary text-label-lg uppercase tracking-widest pb-1 hover:opacity-70 transition-opacity" href="index.html">Home</a>
+      <a class="text-primary text-label-lg uppercase tracking-widest pb-1 hover:opacity-70 transition-opacity" href="events.html"><span class="lang-nl">Evenementen</span><span class="lang-en">Events</span></a>
+      <a class="text-secondary font-bold border-b-2 border-secondary text-label-lg uppercase tracking-widest pb-1" href="about.html" aria-current="page"><span class="lang-nl">Over Ons</span><span class="lang-en">About Us</span></a>
+      <a class="text-primary text-label-lg uppercase tracking-widest pb-1 hover:opacity-70 transition-opacity" href="shop.html">Shop</a>
+      <a class="text-primary text-label-lg uppercase tracking-widest pb-1 hover:opacity-70 transition-opacity" href="contact.html">Contact</a>
+    </nav>
+    <div class="hidden md:flex items-center gap-4">
+      <a href="contact.html" data-magnetic class="bg-primary text-on-primary text-label-lg uppercase tracking-widest px-6 py-4 border-2 border-primary hover:opacity-80 transition-opacity">
+        Join Fellowship
+      </a>
+      <button onclick="toggleDark()" id="dark-toggle" aria-label="Toggle dark mode"
+        class="p-2 text-primary border-2 border-primary/30 hover:border-primary transition-colors">
+        <span class="material-symbols-outlined dark-icon-moon" style="font-size:20px">dark_mode</span>
+        <span class="material-symbols-outlined dark-icon-sun hidden" style="font-size:20px">light_mode</span>
+      </button>
+      <div class="flex items-center gap-2 border-l border-primary/20 pl-4 ml-2">
+        <button onclick="setLanguage('nl')" class="font-bold text-label-lg tracking-widest text-primary hover:text-secondary transition-colors" data-lang-trigger="nl">NL</button>
+        <span class="text-primary/30">|</span>
+        <button onclick="setLanguage('en')" class="font-bold text-label-lg tracking-widest text-primary hover:text-secondary transition-colors" data-lang-trigger="en">EN</button>
+      </div>
+    </div>
+    <div class="flex items-center gap-1 md:hidden">
+      <button onclick="toggleDark()" aria-label="Toggle dark mode" class="p-2 text-primary">
+        <span class="material-symbols-outlined dark-icon-moon" style="font-size:24px">dark_mode</span>
+        <span class="material-symbols-outlined dark-icon-sun hidden" style="font-size:24px">light_mode</span>
+      </button>
+      <button id="menu-toggle" class="text-primary p-2" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="material-symbols-outlined" style="font-size:32px">menu</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="flex-col bg-surface border-t-2 border-primary px-6 py-4 gap-4 md:hidden">
+    <a class="text-primary text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="index.html">Home</a>
+    <a class="text-primary text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="events.html"><span class="lang-nl">Evenementen</span><span class="lang-en">Events</span></a>
+    <a class="text-secondary font-bold text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="about.html"><span class="lang-nl">Over Ons</span><span class="lang-en">About Us</span></a>
+    <a class="text-primary text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="shop.html">Shop</a>
+    <a class="text-primary text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="contact.html">Contact</a>
+    <a href="contact.html" class="bg-primary text-on-primary text-label-lg uppercase tracking-widest px-6 py-4 text-center mt-2 block">
+      Join Fellowship
+    </a>
+    <div class="flex justify-center items-center gap-4 py-2 border-t border-outline-variant mt-2">
+      <button onclick="setLanguage('nl')" class="font-bold text-label-lg tracking-widest text-primary hover:text-secondary transition-colors" data-lang-trigger="nl">NL</button>
+      <span class="text-primary/30">|</span>
+      <button onclick="setLanguage('en')" class="font-bold text-label-lg tracking-widest text-primary hover:text-secondary transition-colors" data-lang-trigger="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<main class="flex-grow w-full max-w-7xl mx-auto px-6 md:px-16 py-12 md:py-24 space-y-32">
+
+  <!-- ── HERO ─────────────────────────────────────────────────────── -->
+  <section class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end min-h-[500px]">
+    <div class="lg:col-span-8 space-y-8">
+      <div class="fade-up inline-block bg-primary text-on-primary px-4 py-1 text-label-lg uppercase tracking-widest">
+        <span class="lang-nl">Identiteit &amp; Doel</span><span class="lang-en">Identity &amp; Purpose</span>
+      </div>
+      <h1 data-hero-enter class="cinematic-text font-black text-primary uppercase leading-none tracking-tighter" style="font-size:clamp(3rem,10vw,6rem);">
+        <span class="lang-nl">WIJ ZIJN GEEN<br/>KERK.</span>
+        <span class="lang-en">WE ARE NOT<br/>A CHURCH.</span>
+      </h1>
+      <div class="section-rule w-full"></div>
+      <p class="fade-up text-body-lg text-on-surface-variant max-w-2xl border-l-4 border-secondary pl-6 py-2" data-delay="0.15">
+        <span class="lang-nl">Men of Christ is een implementatiegroep. Wij zijn een broederschap die mannen toerust met de spirituele, mentale en fysieke wapens om met overtuiging te leiden in een gebroken wereld.</span>
+        <span class="lang-en">Men of Christ is an implementation group. We are a brotherhood dedicated to equipping men with the spiritual, mental, and physical tools required to lead with conviction in a fallen world.</span>
+      </p>
+    </div>
+    <div class="lg:col-span-4 hidden lg:block relative min-h-[400px]">
+      <div id="pillar-slideshow" class="absolute inset-0 border-2 border-primary overflow-hidden bg-primary">
+
+        <!-- Slide 1: Brood Breken (Fellowship) -->
+        <div class="pillar-slide active">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Mannen samen aan tafel" class="w-full h-full object-cover filter grayscale opacity-60"/>
+          <div class="pillar-slide-label">
+            <span class="font-serif italic text-secondary text-sm">01 —</span>
+            <span class="text-on-primary font-bold text-label-lg uppercase tracking-widest">Brood Breken</span>
+          </div>
+        </div>
+
+        <!-- Slide 2: Verdiepen in het Woord -->
+        <div class="pillar-slide">
+          <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=600&q=80" alt="Man leest Bijbel" class="w-full h-full object-cover filter grayscale opacity-60"/>
+          <div class="pillar-slide-label">
+            <span class="font-serif italic text-secondary text-sm">02 —</span>
+            <span class="text-on-primary font-bold text-label-lg uppercase tracking-widest">Verdiepen in het Woord</span>
+          </div>
+        </div>
+
+        <!-- Slide 3: Fitness -->
+        <div class="pillar-slide">
+          <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80" alt="Man traint" class="w-full h-full object-cover filter grayscale opacity-60"/>
+          <div class="pillar-slide-label">
+            <span class="font-serif italic text-secondary text-sm">03 —</span>
+            <span class="text-on-primary font-bold text-label-lg uppercase tracking-widest">Fitness</span>
+          </div>
+        </div>
+
+        <!-- Slide 4: Wandelen in Bewustzijn -->
+        <div class="pillar-slide">
+          <img src="https://images.unsplash.com/photo-1476611338391-6f395a0ebc7b?w=600&q=80" alt="Man wandelt met intentie" class="w-full h-full object-cover filter grayscale opacity-60"/>
+          <div class="pillar-slide-label">
+            <span class="font-serif italic text-secondary text-sm">04 —</span>
+            <span class="text-on-primary font-bold text-label-lg uppercase tracking-widest">Wandelen in Bewustzijn</span>
+          </div>
+        </div>
+
+        <!-- Dot nav -->
+        <div class="absolute top-4 right-4 flex flex-col gap-2">
+          <button class="pillar-dot active" data-slide="0" aria-label="Pijler 1"></button>
+          <button class="pillar-dot" data-slide="1" aria-label="Pijler 2"></button>
+          <button class="pillar-dot" data-slide="2" aria-label="Pijler 3"></button>
+          <button class="pillar-dot" data-slide="3" aria-label="Pijler 4"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── THE MANDATE ───────────────────────────────────────────────── -->
+  <section class="space-y-16" id="mandate">
+    <div class="space-y-4">
+      <h2 class="cinematic-text font-black text-headline-lg text-primary uppercase tracking-tighter">
+        <span class="lang-nl">Het Mandaat</span><span class="lang-en">The Mandate</span>
+      </h2>
+      <div class="section-rule w-full max-w-xs"></div>
+    </div>
+
+    <div class="stagger-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div data-stagger-item class="mandate-card-light glow-card border-2 border-primary p-8 flex flex-col justify-between min-h-[300px]">
+        <div>
+          <span class="material-symbols-outlined text-4xl text-secondary mb-6 filled-icon">shield</span>
+          <h3 class="font-black text-headline-md text-primary mb-4 uppercase">
+            <span class="lang-nl">Versterken</span><span class="lang-en">Fortify</span>
+          </h3>
+          <p class="text-body-md text-on-surface-variant">
+            <span class="lang-nl">Bouwen aan onwrikbare veerkracht door gedisciplineerde studie en agressieve toepassing van Bijbelse waarheid. We lezen niet alleen; we trainen.</span>
+            <span class="lang-en">Building unwavering resilience through disciplined study and aggressive application of biblical truth. We do not just read; we train.</span>
+          </p>
+        </div>
+      </div>
+      <div data-stagger-item class="mandate-card-dark glow-card border-2 border-primary bg-primary p-8 flex flex-col justify-between min-h-[300px]">
+        <div>
+          <span class="material-symbols-outlined text-4xl text-secondary mb-6 filled-icon">swords</span>
+          <h3 class="font-black text-headline-md text-on-primary mb-4 uppercase">
+            <span class="lang-nl">Toerusten</span><span class="lang-en">Equip</span>
+          </h3>
+          <p class="text-body-md text-on-primary" style="opacity:0.8">
+            <span class="lang-nl">Het leren om met de Heer te staan in onze priesterlijke roeping, zodat wij als mannen effectief leiding kunnen geven in onze huishoudens en gemeenschappen.</span>
+            <span class="lang-en">Learning to stand with the Lord in our priestly calling, so that we as men can effectively lead in our households and communities.</span>
+          </p>
+        </div>
+      </div>
+      <div data-stagger-item class="mandate-card-light glow-card border-2 border-primary p-8 flex flex-col justify-between min-h-[300px]">
+        <div>
+          <span class="material-symbols-outlined text-4xl text-secondary mb-6 filled-icon">group</span>
+          <h3 class="font-black text-headline-md text-primary mb-4 uppercase">
+            <span class="lang-nl">Uitzenden</span><span class="lang-en">Deploy</span>
+          </h3>
+          <p class="text-body-md text-on-surface-variant">
+            <span class="lang-nl">Mannen terugsturen naar hun lokale kerken en gezinnen, niet als passieve toeschouwers, maar als actieve, capabele leiders en verdedigers van het geloof.</span>
+            <span class="lang-en">Sending men back into their local churches and families not as passive attendees, but as active, capable leaders and defenders of the faith.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── IDENTITY ──────────────────────────────────────────────────── -->
+  <section class="grid grid-cols-1 lg:grid-cols-2 gap-16 pt-16 border-t-2 border-primary identity-divider" id="church-identity" aria-labelledby="identity-heading">
+
+    <div class="space-y-12">
+      <div class="fade-up flex items-center gap-4 border-b-2 border-error pb-4">
+        <span class="material-symbols-outlined text-3xl text-error">close</span>
+        <h2 id="identity-heading" class="font-black text-headline-md text-primary uppercase tracking-tighter">
+          <span class="lang-nl">Wat We Niet Zijn</span><span class="lang-en">What We Are Not</span>
+        </h2>
+      </div>
+      <ul class="stagger-grid space-y-8">
+        <li data-stagger-item class="identity-item flex gap-6 items-start">
+          <div class="text-error font-black text-headline-sm mt-1 shrink-0">01</div>
+          <div>
+            <h4 class="font-bold text-headline-sm text-primary mb-2">
+              <span class="lang-nl">Kerkvervanging</span><span class="lang-en">A Local Church Replacement</span>
+            </h4>
+            <p class="text-body-md text-on-surface-variant">
+              <span class="lang-nl">Wij bieden geen zondagsdiensten, sacramenten of pastoraat. Wij verwachten dat elke man actief betrokken en submitted is aan een gezonde, Bijbelse lokale kerk.</span>
+              <span class="lang-en">We do not offer Sunday services, sacraments, or pastoral care. We expect every man to be actively submitted to a healthy, biblical local church.</span>
+            </p>
+          </div>
+        </li>
+        <li data-stagger-item class="identity-item flex gap-6 items-start">
+          <div class="text-error font-black text-headline-sm mt-1 shrink-0">02</div>
+          <div>
+            <h4 class="font-bold text-headline-sm text-primary mb-2">
+              <span class="lang-nl">Een Passieve Sociale Club</span><span class="lang-en">A Passive Social Club</span>
+            </h4>
+            <p class="text-body-md text-on-surface-variant">
+              <span class="lang-nl">Dit is geen plek voor vrijblijvend netwerken of gezellig bijkletsen. Het is een beproevingsveld. Verwacht uitgedaagd, gecorrigeerd en gepusht te worden.</span>
+              <span class="lang-en">This is not a place for casual networking or mere socializing. It is a proving ground. Expect to be challenged, corrected, and pushed.</span>
+            </p>
+          </div>
+        </li>
+        <li data-stagger-item class="identity-item flex gap-6 items-start">
+          <div class="text-error font-black text-headline-sm mt-1 shrink-0">03</div>
+          <div>
+            <h4 class="font-bold text-headline-sm text-primary mb-2">
+              <span class="lang-nl">Een Theologische Echokamer</span><span class="lang-en">A Theological Echo Chamber</span>
+            </h4>
+            <p class="text-body-md text-on-surface-variant">
+              <span class="lang-nl">Hoewel we vasthouden aan historisch orthodox christendom, focussen we op de praktische toepassing van waarheid over kerkmuren heen. Hoofdzaak op hoofdzaken.</span>
+              <span class="lang-en">While we hold to historic orthodox Christianity, we focus on the practical implementation of truth across denominational lines. We major on the majors.</span>
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="space-y-12">
+      <div class="fade-up flex items-center gap-4 border-b-2 border-primary identity-divider pb-4" data-delay="0.1">
+        <span class="material-symbols-outlined text-3xl text-primary">check</span>
+        <h2 class="font-black text-headline-md text-primary uppercase tracking-tighter">
+          <span class="lang-nl">Wat We Wel Zijn</span><span class="lang-en">What We Are</span>
+        </h2>
+      </div>
+      <ul class="stagger-grid space-y-8">
+        <li data-stagger-item class="identity-item flex gap-6 items-start">
+          <div class="text-secondary font-black text-headline-sm mt-1 shrink-0">01</div>
+          <div>
+            <h4 class="font-bold text-headline-sm text-primary mb-2">
+              <span class="lang-nl">Een Implementatiegroep</span><span class="lang-en">An Implementation Group</span>
+            </h4>
+            <p class="text-body-md text-on-surface-variant">
+              <span class="lang-nl">Wij richten ons op het 'hoe' van christelijk man-zijn. Het omzetten van theologische concepten in actieve, dagelijkse disciplines.</span>
+              <span class="lang-en">We focus on the 'how-to' of Christian manhood. Taking theological concepts and turning them into actionable, daily disciplines.</span>
+            </p>
+          </div>
+        </li>
+        <li data-stagger-item class="identity-item flex gap-6 items-start">
+          <div class="text-secondary font-black text-headline-sm mt-1 shrink-0">02</div>
+          <div>
+            <h4 class="font-bold text-headline-sm text-primary mb-2">
+              <span class="lang-nl">Een IJzersterke Broederschap</span><span class="lang-en">An Iron-Sharpening Brotherhood</span>
+            </h4>
+            <p class="text-body-md text-on-surface-variant">
+              <span class="lang-nl">Een lokaal netwerk van mannen die elkaar verantwoordelijk houden aan een hoge standaard van morele zuiverheid, fysieke paraatheid en spirituele volwassenheid.</span>
+              <span class="lang-en">A localized network of men who hold each other accountable to a high standard of moral purity, physical readiness, and spiritual maturity.</span>
+            </p>
+          </div>
+        </li>
+        <li data-stagger-item class="identity-item flex gap-6 items-start">
+          <div class="text-secondary font-black text-headline-sm mt-1 shrink-0">03</div>
+          <div>
+            <h4 class="font-bold text-headline-sm text-primary mb-2">
+              <span class="lang-nl">Een Krachtversterker</span><span class="lang-en">A Force Multiplier</span>
+            </h4>
+            <p class="text-body-md text-on-surface-variant">
+              <span class="lang-nl">Ons doel is om mannen waardevoller te maken voor hun pastors, aanweziger voor hun gezinnen en gevaarlijker voor de bolwerken van de vijand.</span>
+              <span class="lang-en">Our goal is to make men more valuable to their pastors, more present for their families, and more dangerous to the enemy's strongholds.</span>
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── CTA BAND ──────────────────────────────────────────────────── -->
+  <section class="cta-band bg-primary text-on-primary border-4 border-primary relative overflow-hidden p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8">
+    <div class="relative z-10 max-w-2xl">
+      <h2 class="cinematic-text font-black text-headline-lg-mobile md:text-headline-lg uppercase mb-4 tracking-tighter">
+        <span class="lang-nl">Treed toe tot de linies</span><span class="lang-en">Step Into The Ranks</span>
+      </h2>
+      <p class="fade-up text-body-lg text-on-primary" style="opacity:0.8" data-delay="0.2">
+        <span class="lang-nl">Stop met toekijken. Begin met toepassen. Sluit je aan bij ons volgende event of meld je aan voor het broederschap.</span>
+        <span class="lang-en">Stop spectating. Start implementing. Join our next event or apply for the core fellowship.</span>
+      </p>
+    </div>
+    <div class="relative z-10 flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+      <a href="events.html" data-magnetic class="bg-surface text-primary text-label-lg uppercase tracking-widest px-8 py-4 hover:bg-surface-variant transition-colors text-center">
+        <span class="lang-nl">Aankomende Events</span><span class="lang-en">Upcoming Events</span>
+      </a>
+      <a href="contact.html" data-magnetic class="border-2 border-surface text-surface text-label-lg uppercase tracking-widest px-8 py-4 hover:bg-white/10 transition-colors text-center">
+        <span class="lang-nl">Word Lid</span><span class="lang-en">Join Fellowship</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────── -->
+<footer class="w-full relative bg-primary border-t-4 border-secondary mt-auto">
+  <div class="flex flex-col md:flex-row justify-between items-start w-full px-6 md:px-16 py-12 gap-6 max-w-7xl mx-auto">
+    <div class="space-y-4 max-w-sm">
+      <div class="font-black text-headline-sm text-secondary">MEN OF CHRIST</div>
+      <p class="text-body-md text-on-primary" style="opacity:0.8">
+        <span class="lang-nl">Mannen toerusten voor de spirituele strijd. Geen kerk, maar een implementatiegroep die ijzer smeedt in de lokale gemeenschap.</span>
+        <span class="lang-en">Equipping men for the spiritual war. Not a church, but an implementation group forging iron in the local community.</span>
+      </p>
+      <div class="text-body-md text-on-primary" style="opacity:0.6">© 2026 MEN OF CHRIST. <span class="lang-nl">VERANKERD IN GELOOF.</span><span class="lang-en">ANCHORED IN FAITH.</span></div>
+    </div>
+    <div class="flex flex-col md:flex-row gap-12 md:gap-24">
+      <div class="flex flex-col gap-4">
+        <span class="text-label-lg uppercase text-secondary tracking-widest mb-2"><span class="lang-nl">Navigatie</span><span class="lang-en">Navigation</span></span>
+        <a class="text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8" href="about.html"><span class="lang-nl">Missie</span><span class="lang-en">Mission</span></a>
+        <a class="text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8" href="about.html#church-identity"><span class="lang-nl">Identiteit</span><span class="lang-en">Identity</span></a>
+        <a class="text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8" href="events.html"><span class="lang-nl">Evenementen</span><span class="lang-en">Events</span></a>
+        <a class="text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8" href="shop.html">Shop</a>
+        <a class="text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8" href="contact.html">Contact</a>
+      </div>
+      <!-- Social links -->
+      <div class="flex flex-col gap-4">
+        <span class="text-label-lg uppercase text-secondary tracking-widest mb-2">Social</span>
+        <a id="moc-footer-instagram" href="https://www.instagram.com/menofchrist_rotterdam" target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-2 text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8">
+          <span class="material-symbols-outlined" style="font-size:16px">photo_camera</span>Instagram
+        </a>
+        <a id="moc-footer-youtube" href="https://www.youtube.com/c/MenOfChristRotterdam" target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-2 text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8">
+          <span class="material-symbols-outlined" style="font-size:16px">play_circle</span>YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── CDN: Lenis + GSAP + ScrollTrigger + config.js + motion.js ──── -->
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="config.js"></script>
+<script src="motion.js"></script>
+
+<script>
+  /* ── Mobile menu ── */
+  const toggle = document.getElementById('menu-toggle');
+  const menu   = document.getElementById('mobile-menu');
+  toggle.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+    toggle.querySelector('.material-symbols-outlined').textContent = isOpen ? 'close' : 'menu';
+  });
+
+  /* ── Language switcher ── */
+  function setLanguage(lang) {
+    localStorage.setItem('moc-lang', lang);
+    window.location.reload();
+  }
+
+  /* ── Dark mode ── */
+  function toggleDark() {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('moc-dark', isDark);
+    syncDarkIcons();
+  }
+  function syncDarkIcons() {
+    const isDark = document.documentElement.classList.contains('dark');
+    document.querySelectorAll('.dark-icon-moon').forEach(el => el.classList.toggle('hidden', isDark));
+    document.querySelectorAll('.dark-icon-sun').forEach(el  => el.classList.toggle('hidden', !isDark));
+  }
+  syncDarkIcons();
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(err => console.error('[SW] Registratie mislukt:', err));
+  }
+
+  /* ── Pillar slideshow ── */
+  (function () {
+    const slides = document.querySelectorAll('.pillar-slide');
+    const dots   = document.querySelectorAll('.pillar-dot');
+    if (!slides.length) return;
+    let current = 0;
+    let timer;
+
+    function goTo(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function autoPlay() {
+      timer = setInterval(() => goTo(current + 1), 3500);
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        clearInterval(timer);
+        goTo(parseInt(dot.dataset.slide));
+        autoPlay();
+      });
+    });
+
+    autoPlay();
+  })();
+</script>
+</body>
+</html>

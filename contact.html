@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<script>
+  (function() {
+    const savedDark = localStorage.getItem('moc-dark');
+    if (savedDark === 'true' || (!savedDark && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+    const savedLang = localStorage.getItem('moc-lang') || 'nl';
+    document.documentElement.setAttribute('lang', savedLang);
+  })();
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact — Men of Christ | Reach The Brethren</title>
+<meta name="description" content="Neem contact op met Men of Christ. Aanmelding bijeenkomst, vragen of partnership — wij zijn hier om te luisteren. Zwaerdecroonstraat 11, Rotterdam."/>
+<link rel="canonical" href="https://menofchrist.nl/contact.html"/>
+<meta property="og:title" content="Contact — Men of Christ"/>
+<meta property="og:description" content="Reach the brethren. Speak clearly. We value intention."/>
+<meta property="og:type" content="website"/>
+<meta name="theme-color" content="#0A0A0A"/>
+<link rel="manifest" href="manifest.json"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;800;900&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#0A0A0A", "on-primary": "#F2EFEB",
+          "secondary": "#B07A43", "on-secondary": "#F2EFEB",
+          "secondary-container": "#DCAE7A", "secondary-fixed": "#E2B887",
+          "surface": "#F2EFEB", "surface-container": "#E8E4DE",
+          "surface-container-low": "#EDE9E3", "surface-variant": "#DDD9D3",
+          "on-surface": "#1A1A1A", "on-surface-variant": "#595959",
+          "outline-variant": "#D1CCC5", "background": "#F2EFEB",
+        },
+        borderRadius: { "DEFAULT": "0", "sm": "0", "md": "0", "lg": "0", "xl": "0", "full": "9999px" },
+        spacing: { "stack-lg": "48px", "stack-md": "24px", "stack-sm": "12px", "gutter": "24px" },
+        fontFamily: { "sans": ["Chivo", "sans-serif"], "serif": ["Playfair Display", "serif"] },
+        fontSize: {
+          "display-lg": ["72px", { "lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "900" }],
+          "headline-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+          "headline-lg-mobile": ["36px", { "lineHeight": "1.1", "fontWeight": "800" }],
+          "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+          "headline-sm": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }],
+          "body-lg": ["18px", { "lineHeight": "1.6" }], "body-md": ["16px", { "lineHeight": "1.5" }],
+          "label-lg": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700" }],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .font-serif { font-family: 'Playfair Display', serif; }
+  .texture-overlay { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999; opacity:0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  #mobile-menu { display: none; }
+  #mobile-menu.open { display: flex; }
+  a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 2px solid #B07A43; outline-offset: 2px;
+  }
+  select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+  /* Bilingual */
+  html[lang="nl"] .lang-en { display: none !important; }
+  html[lang="en"] .lang-nl { display: none !important; }
+  html[lang="nl"] [data-lang-trigger="nl"] { color: #B07A43 !important; font-weight: 900; }
+  html[lang="en"] [data-lang-trigger="en"] { color: #B07A43 !important; font-weight: 900; }
+
+  /* ── parallax wrap ── */
+  .parallax-wrap { overflow: hidden; }
+
+  /* ── Dark mode ── */
+  .dark header { background: #111111 !important; border-color: #2A2A2A !important; }
+  .dark body   { background: #0E0E0E !important; color: #F2EFEB !important; }
+  .dark main   { background: #0E0E0E !important; }
+  .dark .text-primary { color: #F2EFEB !important; }
+  .dark .text-on-surface-variant { color: #9E9791 !important; }
+  .dark .border-primary { border-color: #2A2A2A !important; }
+  .dark nav a { color: #F2EFEB !important; }
+  .dark footer { background: #050505 !important; }
+  .dark .form-panel { background: #161616 !important; border-color: #2A2A2A !important; }
+  .dark input, .dark textarea, .dark select {
+    color: #F2EFEB !important;
+    border-color: #2A2A2A !important;
+  }
+  .dark input::placeholder, .dark textarea::placeholder { color: #595959 !important; }
+  .dark input:focus, .dark textarea:focus, .dark select:focus { border-color: #B07A43 !important; }
+  .dark input:focus-visible, .dark textarea:focus-visible, .dark select:focus-visible { outline-color: #B07A43; }
+
+  /* -- Premium glowing section/nav rules --------------------------- */
+  .section-rule {
+    position: relative;
+    height: 14px;
+    border: none;
+    background: transparent;
+    transform-origin: left center;
+    transform: scaleX(0);
+    overflow: visible;
+  }
+  .section-rule::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at center, rgba(255,244,199,0.95) 0%, rgba(236,191,113,0.92) 18%, rgba(194,130,56,0.48) 44%, rgba(194,130,56,0.10) 68%, transparent 100%),
+      linear-gradient(90deg, transparent 0%, rgba(220,174,122,0.18) 16%, #FFF0B8 50%, rgba(220,174,122,0.18) 84%, transparent 100%);
+    clip-path: polygon(0 46%, 38% 39%, 50% 18%, 62% 39%, 100% 46%, 100% 54%, 62% 61%, 50% 82%, 38% 61%, 0 54%);
+    filter: drop-shadow(0 0 8px rgba(236,191,113,0.70)) drop-shadow(0 0 22px rgba(176,122,67,0.34));
+  }
+  .dark .section-rule::before {
+    background:
+      radial-gradient(ellipse at center, rgba(255,246,208,0.98) 0%, rgba(220,174,122,0.96) 20%, rgba(176,122,67,0.52) 48%, rgba(176,122,67,0.10) 72%, transparent 100%),
+      linear-gradient(90deg, transparent 0%, rgba(220,174,122,0.18) 16%, #FFF0B8 50%, rgba(220,174,122,0.18) 84%, transparent 100%);
+    filter: drop-shadow(0 0 10px rgba(236,191,113,0.78)) drop-shadow(0 0 28px rgba(220,174,122,0.36));
+  }
+  nav a[aria-current="page"], nav a.active-link {
+    position: relative;
+    border-bottom-color: transparent !important;
+  }
+  nav a[aria-current="page"]::after, nav a.active-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -7px;
+    height: 7px;
+    background: linear-gradient(90deg, transparent 0%, rgba(220,174,122,0.35) 20%, #FFF0B8 50%, rgba(220,174,122,0.35) 80%, transparent 100%);
+    clip-path: polygon(0 45%, 40% 35%, 50% 16%, 60% 35%, 100% 45%, 100% 55%, 60% 65%, 50% 84%, 40% 65%, 0 55%);
+    filter: drop-shadow(0 0 8px rgba(236,191,113,0.72));
+    pointer-events: none;
+  }
+
+  /* -- Premium chrome: header/footer separators ------------------- */
+  header {
+    position: sticky;
+    border-bottom-color: transparent !important;
+    background: rgba(242,239,235,0.82) !important;
+    backdrop-filter: blur(16px) saturate(126%);
+    -webkit-backdrop-filter: blur(16px) saturate(126%);
+    box-shadow: 0 12px 36px rgba(10,10,10,0.07);
+  }
+  header::after,
+  footer::before,
+  .cta-band::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 10px;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse at center, rgba(255,244,199,0.88) 0%, rgba(236,191,113,0.66) 22%, rgba(194,130,56,0.18) 54%, transparent 78%),
+      linear-gradient(90deg, transparent 0%, rgba(220,174,122,0.22) 24%, #FFF0B8 50%, rgba(220,174,122,0.22) 76%, transparent 100%);
+    clip-path: polygon(0 47%, 42% 42%, 50% 20%, 58% 42%, 100% 47%, 100% 53%, 58% 58%, 50% 80%, 42% 58%, 0 53%);
+    filter: drop-shadow(0 0 9px rgba(236,191,113,0.58));
+    z-index: 2;
+  }
+  header::after { bottom: -5px; }
+  footer,
+  .cta-band { position: relative; border-top-color: transparent !important; }
+  footer::before,
+  .cta-band::before { top: -5px; }
+  .dark header {
+    background: rgba(10,10,10,0.70) !important;
+    border-bottom-color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: 0 16px 44px rgba(0,0,0,0.34);
+  }
+  .dark footer,
+  .dark .cta-band { border-top-color: transparent !important; border-color: transparent !important; }
+</style>
+</head>
+<body class="bg-background text-on-surface font-sans min-h-screen flex flex-col antialiased selection:bg-secondary selection:text-on-secondary">
+<div class="texture-overlay" aria-hidden="true"></div>
+
+<!-- ── HEADER ───────────────────────────────────────────────────── -->
+<header class="w-full sticky top-0 z-50 bg-surface border-b-2 border-primary">
+  <div class="flex justify-between items-center w-full px-6 md:px-16 py-4 max-w-7xl mx-auto">
+    <a class="font-black text-2xl tracking-tighter text-primary" href="index.html">MEN OF CHRIST</a>
+    <nav class="hidden md:flex items-center gap-6" aria-label="Hoofdnavigatie">
+      <a class="text-primary text-label-lg uppercase tracking-widest pb-1 hover:opacity-70 transition-opacity" href="index.html">Home</a>
+      <a class="text-primary text-label-lg uppercase tracking-widest pb-1 hover:opacity-70 transition-opacity" href="events.html"><span class="lang-nl">Evenementen</span><span class="lang-en">Events</span></a>
+      <a class="text-primary text-label-lg uppercase tracking-widest pb-1 hover:opacity-70 transition-opacity" href="about.html"><span class="lang-nl">Over Ons</span><span class="lang-en">About Us</span></a>
+      <a class="text-primary text-label-lg uppercase tracking-widest pb-1 hover:opacity-70 transition-opacity" href="shop.html">Shop</a>
+      <a class="text-secondary font-bold border-b-2 border-secondary text-label-lg uppercase tracking-widest pb-1" href="contact.html" aria-current="page">Contact</a>
+    </nav>
+    <div class="hidden md:flex items-center gap-4">
+      <a href="contact.html" data-magnetic class="bg-primary text-on-primary text-label-lg uppercase tracking-widest px-6 py-4 hover:opacity-80 transition-opacity border-2 border-primary">
+        Join Fellowship
+      </a>
+      <button onclick="toggleDark()" aria-label="Toggle dark mode"
+        class="p-2 text-primary border-2 border-primary/30 hover:border-primary transition-colors">
+        <span class="material-symbols-outlined dark-icon-moon" style="font-size:20px">dark_mode</span>
+        <span class="material-symbols-outlined dark-icon-sun hidden" style="font-size:20px">light_mode</span>
+      </button>
+      <div class="flex items-center gap-2 border-l border-primary/20 pl-4 ml-2">
+        <button onclick="setLanguage('nl')" class="font-bold text-label-lg tracking-widest text-primary hover:text-secondary transition-colors" data-lang-trigger="nl">NL</button>
+        <span class="text-primary/30">|</span>
+        <button onclick="setLanguage('en')" class="font-bold text-label-lg tracking-widest text-primary hover:text-secondary transition-colors" data-lang-trigger="en">EN</button>
+      </div>
+    </div>
+    <div class="flex items-center gap-1 md:hidden">
+      <button onclick="toggleDark()" aria-label="Toggle dark mode" class="p-2 text-primary">
+        <span class="material-symbols-outlined dark-icon-moon" style="font-size:24px">dark_mode</span>
+        <span class="material-symbols-outlined dark-icon-sun hidden" style="font-size:24px">light_mode</span>
+      </button>
+      <button id="menu-toggle" class="text-primary p-2" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="material-symbols-outlined" style="font-size:32px">menu</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="flex-col bg-surface border-t-2 border-primary px-6 py-4 gap-4 md:hidden">
+    <a class="text-primary text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="index.html">Home</a>
+    <a class="text-primary text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="events.html"><span class="lang-nl">Evenementen</span><span class="lang-en">Events</span></a>
+    <a class="text-primary text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="about.html"><span class="lang-nl">Over Ons</span><span class="lang-en">About Us</span></a>
+    <a class="text-primary text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="shop.html">Shop</a>
+    <a class="text-secondary font-bold text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="contact.html">Contact</a>
+    <a href="contact.html" class="bg-primary text-on-primary text-label-lg uppercase tracking-widest px-6 py-4 text-center mt-2 block">
+      Join Fellowship
+    </a>
+    <div class="flex justify-center items-center gap-4 py-2 border-t border-outline-variant mt-2">
+      <button onclick="setLanguage('nl')" class="font-bold text-label-lg tracking-widest text-primary hover:text-secondary transition-colors" data-lang-trigger="nl">NL</button>
+      <span class="text-primary/30">|</span>
+      <button onclick="setLanguage('en')" class="font-bold text-label-lg tracking-widest text-primary hover:text-secondary transition-colors" data-lang-trigger="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<!-- ── MAIN ─────────────────────────────────────────────────────── -->
+<main class="flex-grow flex flex-col w-full px-6 md:px-16 py-12 max-w-7xl mx-auto">
+
+  <!-- Hero heading -->
+  <div class="w-full mb-12 border-b-2 border-primary pb-6">
+    <h1 data-hero-enter class="cinematic-text font-black text-headline-lg-mobile md:text-display-lg text-primary uppercase leading-none tracking-tighter">
+      <span class="lang-nl">BEREIK DE<br/>BROEDERS</span>
+      <span class="lang-en">REACH THE<br/>BRETHREN</span>
+    </h1>
+    <div class="section-rule w-full max-w-xs mt-4"></div>
+    <p class="fade-up text-body-lg text-on-surface-variant mt-6 max-w-2xl" data-delay="0.15">
+      <span class="lang-nl">Of je nu leiding zoekt, wilt bijdragen of klaar bent om met ons te staan, we zijn hier om te luisteren. Spreek duidelijk. We waarderen intentie.</span>
+      <span class="lang-en">Whether you seek guidance, wish to contribute, or are ready to stand with us, we are here to listen. Speak clearly. We value intention.</span>
+    </p>
+  </div>
+
+  <!-- Two-column layout -->
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-6 w-full">
+
+    <!-- Left: contact info -->
+    <div class="md:col-span-5 flex flex-col gap-12">
+      <div class="fade-up flex flex-col gap-3">
+        <span class="text-label-lg uppercase text-secondary tracking-widest">
+          <span class="lang-nl">Directe Lijn</span><span class="lang-en">Direct Line</span>
+        </span>
+        <a class="font-black text-headline-md text-primary hover:text-secondary transition-colors break-all"
+           href="mailto:Menofchristevents@gmail.com">
+          Menofchristevents&#64;gmail&#46;com
+        </a>
+      </div>
+
+      <div class="fade-up flex flex-col gap-3" data-delay="0.1">
+        <span class="text-label-lg uppercase text-secondary tracking-widest">
+          <span class="lang-nl">Bijeenkomsten</span><span class="lang-en">Gathering Ground</span>
+        </span>
+        <address class="font-black text-headline-sm text-primary not-italic uppercase leading-tight">
+          Zwaerdecroonstraat 11,<br/>Rotterdam
+        </address>
+      </div>
+
+      <div class="fade-up mt-auto hidden md:block pt-12 border-t-2 border-primary" style="opacity:0.35" data-delay="0.2">
+        <p class="font-serif italic text-body-md text-primary">
+          "My sheep hear my voice, and I know them, and they follow me."
+        </p>
+        <p class="text-label-lg text-on-surface-variant mt-2">— Johannes 10:27</p>
+      </div>
+    </div>
+
+    <!-- Right: Contact Form -->
+    <!--
+      NETLIFY FORMS:
+      - data-netlify="true" vertelt de Netlify-server tijdens deploy dat dit formulier verwerkt moet worden
+      - Het hidden input veld is verplicht voor correct form-routing
+
+      FORMSPREE ALTERNATIEF (als je niet op Netlify host):
+      - Verander action naar: https://formspree.io/f/YOUR_UNIQUE_ID
+      - Verwijder data-netlify en het hidden input veld
+    -->
+    <div class="fade-up md:col-span-7 form-panel bg-surface-container-low p-6 md:p-12 border border-outline-variant" data-delay="0.05">
+      <form
+        class="flex flex-col w-full gap-6"
+        name="moc-contact"
+        method="POST"
+        action="/bedankt.html"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        id="contact-form"
+        novalidate
+      >
+        <input type="hidden" name="form-name" value="moc-contact"/>
+        <p style="display:none"><label>Laat dit veld leeg: <input name="bot-field"/></label></p>
+
+        <!-- Naam -->
+        <div class="relative w-full">
+          <label class="text-label-lg uppercase text-primary block mb-2 tracking-widest" for="name">
+            <span class="lang-nl">Volledige Naam</span><span class="lang-en">Full Name</span>
+          </label>
+          <input
+            class="w-full bg-transparent border-0 border-b-2 border-primary text-primary text-body-md focus:ring-0 focus:border-secondary transition-colors py-3 px-0 placeholder-on-surface-variant"
+            id="name" name="name" placeholder="JOHN DOE" required type="text" autocomplete="name"
+          />
+        </div>
+
+        <!-- Email -->
+        <div class="relative w-full">
+          <label class="text-label-lg uppercase text-primary block mb-2 tracking-widest" for="email">
+            <span class="lang-nl">E-mailadres</span><span class="lang-en">Email Address</span>
+          </label>
+          <input
+            class="w-full bg-transparent border-0 border-b-2 border-primary text-primary text-body-md focus:ring-0 focus:border-secondary transition-colors py-3 px-0 placeholder-on-surface-variant"
+            id="email" name="email" placeholder="JOHN.DOE@EXAMPLE.COM" required type="email" autocomplete="email"
+          />
+        </div>
+
+        <!-- Subject -->
+        <div class="relative w-full">
+          <label class="text-label-lg uppercase text-primary block mb-2 tracking-widest" for="subject">
+            <span class="lang-nl">Onderwerp</span><span class="lang-en">Subject</span>
+          </label>
+          <div class="relative">
+            <select
+              class="w-full bg-transparent border-0 border-b-2 border-primary text-primary text-body-md focus:ring-0 focus:border-secondary transition-colors py-3 px-0 cursor-pointer uppercase"
+              id="subject" name="subject" required
+            >
+              <option disabled selected value="" class="lang-nl">SELECTEER INTENTIE</option>
+              <option disabled selected value="" class="lang-en">SELECT INTENT</option>
+              <option value="aanmelding" class="lang-nl">Aanmelding Bijeenkomst</option>
+              <option value="aanmelding" class="lang-en">Register Gathering</option>
+              <option value="guidance" class="lang-nl">Begeleiding Gezocht</option>
+              <option value="guidance" class="lang-en">Seeking Guidance</option>
+              <option value="events" class="lang-nl">Vragen over Event</option>
+              <option value="events" class="lang-en">Event Inquiry</option>
+              <option value="partnership" class="lang-nl">Samenwerking</option>
+              <option value="partnership" class="lang-en">Partnership</option>
+              <option value="other" class="lang-nl">Andere Zaken</option>
+              <option value="other" class="lang-en">Other Matters</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-primary top-2">
+              <span class="material-symbols-outlined">expand_more</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div class="relative w-full mt-3">
+          <label class="text-label-lg uppercase text-primary block mb-2 tracking-widest" for="message">
+            <span class="lang-nl">Bericht</span><span class="lang-en">Message</span>
+          </label>
+          <div class="lang-nl">
+            <textarea
+              class="w-full bg-transparent border-0 border-b-2 border-primary text-primary text-body-md focus:ring-0 focus:border-secondary transition-colors py-3 px-0 resize-none placeholder-on-surface-variant"
+              id="message" name="message" placeholder="MELD JE INTENTIE DUIDELIJK..." required rows="4"
+            ></textarea>
+          </div>
+          <div class="lang-en">
+            <textarea
+              class="w-full bg-transparent border-0 border-b-2 border-primary text-primary text-body-md focus:ring-0 focus:border-secondary transition-colors py-3 px-0 resize-none placeholder-on-surface-variant"
+              id="message_en" name="message_en" placeholder="STATE YOUR PURPOSE CLEARLY..." required rows="4"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Status feedback -->
+        <div id="form-status" role="alert" aria-live="polite" class="hidden text-body-md"></div>
+
+        <!-- Submit -->
+        <div class="w-full mt-6 flex justify-end">
+          <button
+            class="w-full md:w-auto bg-primary text-on-primary text-label-lg uppercase tracking-widest px-12 py-5 hover:opacity-80 transition-opacity flex items-center justify-center gap-3 cursor-pointer"
+            type="submit" id="submit-btn" data-magnetic
+          >
+            <span id="btn-text">
+              <span class="lang-nl">VERSTUUR BERICHT</span><span class="lang-en">SEND MESSAGE</span>
+            </span>
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────── -->
+<footer class="w-full relative bg-primary border-t-4 border-secondary mt-auto">
+  <div class="flex flex-col md:flex-row justify-between items-start w-full px-6 md:px-16 py-12 gap-6 max-w-7xl mx-auto">
+    <div class="flex flex-col gap-4">
+      <span class="font-black text-headline-sm text-secondary">MEN OF CHRIST</span>
+      <p class="text-body-md text-on-primary" style="opacity:0.6">© 2026 MEN OF CHRIST. <span class="lang-nl">VERANKERD IN GELOOF.</span><span class="lang-en">ANCHORED IN FAITH.</span></p>
+    </div>
+    <nav class="flex flex-wrap gap-x-8 gap-y-4">
+      <a class="text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8" href="about.html"><span class="lang-nl">Missie</span><span class="lang-en">Mission</span></a>
+      <a class="text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8" href="about.html#church-identity"><span class="lang-nl">Identiteit</span><span class="lang-en">Identity</span></a>
+      <a class="text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8" href="events.html"><span class="lang-nl">Evenementen</span><span class="lang-en">Events</span></a>
+      <a class="text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8" href="shop.html">Shop</a>
+      <a class="text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8" href="contact.html">Contact</a>
+    </nav>
+    <div class="flex flex-col gap-3">
+      <span class="text-label-lg uppercase text-secondary tracking-widest">Social</span>
+      <a id="moc-footer-instagram" href="https://www.instagram.com/menofchrist_rotterdam" target="_blank" rel="noopener noreferrer"
+         class="text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8">Instagram</a>
+      <a id="moc-footer-youtube" href="https://www.youtube.com/c/MenOfChristRotterdam" target="_blank" rel="noopener noreferrer"
+         class="text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8">YouTube</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ── CDN: Lenis + GSAP + ScrollTrigger ─────────────────────────── -->
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="config.js"></script>
+<script src="motion.js"></script>
+
+<script>
+  /* ── Mobile menu ── */
+  const toggle = document.getElementById('menu-toggle');
+  const menu   = document.getElementById('mobile-menu');
+  toggle.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+    toggle.querySelector('.material-symbols-outlined').textContent = isOpen ? 'close' : 'menu';
+  });
+
+  /* ── Language switcher ── */
+  function setLanguage(lang) {
+    localStorage.setItem('moc-lang', lang);
+    window.location.reload();
+  }
+
+  /* ── Dark mode ── */
+  function toggleDark() {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('moc-dark', isDark);
+    syncDarkIcons();
+  }
+  function syncDarkIcons() {
+    const isDark = document.documentElement.classList.contains('dark');
+    document.querySelectorAll('.dark-icon-moon').forEach(el => el.classList.toggle('hidden', isDark));
+    document.querySelectorAll('.dark-icon-sun').forEach(el  => el.classList.toggle('hidden', !isDark));
+  }
+  syncDarkIcons();
+
+  /* ── Client-side validation + Netlify async submit (preserved) ── */
+  const form     = document.getElementById('contact-form');
+  const statusEl = document.getElementById('form-status');
+  const btnText  = document.getElementById('btn-text');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    const activeLang = localStorage.getItem('moc-lang') || 'nl';
+    btnText.textContent = activeLang === 'en' ? 'SENDING...' : 'VERZENDEN...';
+
+    try {
+      const data = new FormData(form);
+      if (activeLang === 'en') { data.set('message', data.get('message_en')); }
+
+      const response = await fetch('/', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body:    new URLSearchParams(data).toString(),
+      });
+
+      if (response.ok) {
+        statusEl.className   = 'text-body-md text-primary border-2 border-primary p-4 mt-2';
+        statusEl.textContent = activeLang === 'en'
+          ? '✓ Message sent. We will get back to you as soon as possible.'
+          : '✓ Bericht verstuurd. We nemen zo snel mogelijk contact met je op.';
+        form.reset();
+        btnText.innerHTML = activeLang === 'en'
+          ? '<span class="lang-en">SEND MESSAGE</span>'
+          : '<span class="lang-nl">VERSTUUR BERICHT</span>';
+      } else {
+        throw new Error('Network response was not ok');
+      }
+    } catch (err) {
+      statusEl.className   = 'text-body-md text-error border-2 border-error p-4 mt-2';
+      statusEl.textContent = activeLang === 'en'
+        ? 'Something went wrong. Please email us directly at Menofchristevents@gmail.com'
+        : 'Iets ging mis. Stuur een e-mail direct naar Menofchristevents@gmail.com';
+      btnText.innerHTML = activeLang === 'en'
+        ? '<span class="lang-en">SEND MESSAGE</span>'
+        : '<span class="lang-nl">VERSTUUR BERICHT</span>';
+    }
+  });
+
+  /* ── Service Worker ── */
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(err => console.error('[SW] Registratie mislukt:', err));
+  }
+</script>
+</body>
+</html>

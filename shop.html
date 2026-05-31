@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<script>
+  (function() {
+    const savedDark = localStorage.getItem('moc-dark');
+    if (savedDark === 'true' || (!savedDark && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+    const savedLang = localStorage.getItem('moc-lang') || 'nl';
+    document.documentElement.setAttribute('lang', savedLang);
+  })();
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gear — Men of Christ | MOC Merchandise</title>
+<meta name="description" content="MOC Gear: Heavyweight Tee, Essential Hoodie, Steel Sportfles. Apparel voor de moderne man van geloof. Veilig betalen via Stripe."/>
+<link rel="canonical" href="https://menofchrist.nl/shop.html"/>
+<meta property="og:title" content="Gear — Men of Christ"/>
+<meta property="og:description" content="Bold, uncompromising apparel for the modern man of faith. Secure checkout via Stripe."/>
+<meta property="og:type" content="website"/>
+<meta name="theme-color" content="#0A0A0A"/>
+<link rel="manifest" href="manifest.json"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;800;900&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#0A0A0A", "on-primary": "#F2EFEB",
+          "secondary": "#B07A43", "on-secondary": "#F2EFEB",
+          "secondary-container": "#DCAE7A", "secondary-fixed": "#E2B887",
+          "surface": "#F2EFEB", "surface-container": "#E8E4DE",
+          "surface-variant": "#DDD9D3", "on-surface": "#1A1A1A", "on-surface-variant": "#595959",
+          "outline-variant": "#D1CCC5", "background": "#F2EFEB",
+        },
+        borderRadius: { "DEFAULT": "0", "sm": "0", "md": "0", "lg": "0", "xl": "0", "full": "9999px" },
+        spacing: { "stack-lg": "48px", "stack-md": "24px", "stack-sm": "12px", "gutter": "24px" },
+        fontFamily: { "sans": ["Chivo", "sans-serif"] },
+        fontSize: {
+          "display-lg": ["72px", { "lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "900" }],
+          "headline-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+          "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+          "headline-sm": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }],
+          "body-lg": ["18px", { "lineHeight": "1.6" }], "body-md": ["16px", { "lineHeight": "1.5" }],
+          "label-lg": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700" }],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .texture-overlay { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999; opacity:0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+  /* ── Serif utility ─────────────────────────────────────────────── */
+  .font-serif { font-family: 'Playfair Display', serif; }
+
+  /* ── Parallax ──────────────────────────────────────────────────── */
+  .parallax-wrap { overflow: hidden; }
+
+  #mobile-menu { display: none; }
+  #mobile-menu.open { display: flex; }
+  a:focus-visible, button:focus-visible { outline: 2px solid #B07A43; outline-offset: 2px; }
+
+  /* Bilingual */
+  html[lang="nl"] .lang-en { display: none !important; }
+  html[lang="en"] .lang-nl { display: none !important; }
+  html[lang="nl"] [data-lang-trigger="nl"] { color: #B07A43 !important; font-weight: 900; }
+  html[lang="en"] [data-lang-trigger="en"] { color: #B07A43 !important; font-weight: 900; }
+
+  /* ── Dark mode ── */
+  .dark header { background: #111111 !important; border-color: #2A2A2A !important; }
+  .dark body   { background: #0A0A0A !important; color: #E8E4DE !important; }
+  .dark main   { background: #0A0A0A !important; }
+  .dark .text-primary { color: #C4C0BA !important; }
+  .dark .text-on-surface-variant { color: #999 !important; }
+  .dark .border-primary { border-color: #2A2A2A !important; }
+  .dark nav a { color: #C4C0BA !important; }
+  .dark footer { background: #060606 !important; }
+  .dark .product-card { background: #161616 !important; border-color: #2A2A2A !important; }
+  .dark .product-card:hover { border-color: #B07A43 !important; }
+  /* Warm "lightbox" panel keeps merchandise crisp & visible in dark mode.
+     mix-blend-multiply needs a light backdrop, so the image well stays light. */
+  .dark .product-img-bg { background: #ECE6DC !important; }
+  .product-img-bg { background: #ECE6DC; }
+  .dark .shop-divider { border-color: #2A2A2A !important; }
+
+  /* ── Glow card — no ::after glow ── */
+  .glow-card {
+    position: relative;
+    transition: border-color 0.35s ease;
+  }
+
+  /* -- Premium glowing section/nav rules --------------------------- */
+  .section-rule {
+    position: relative;
+    height: 14px;
+    border: none;
+    background: transparent;
+    transform-origin: left center;
+    transform: scaleX(0);
+    overflow: visible;
+  }
+  .section-rule::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at center, rgba(255,244,199,0.95) 0%, rgba(236,191,113,0.92) 18%, rgba(194,130,56,0.48) 44%, rgba(194,130,56,0.10) 68%, transparent 100%),
+      linear-gradient(90deg, transparent 0%, rgba(220,174,122,0.18) 16%, #FFF0B8 50%, rgba(220,174,122,0.18) 84%, transparent 100%);
+    clip-path: polygon(0 46%, 38% 39%, 50% 18%, 62% 39%, 100% 46%, 100% 54%, 62% 61%, 50% 82%, 38% 61%, 0 54%);
+    filter: drop-shadow(0 0 8px rgba(236,191,113,0.70)) drop-shadow(0 0 22px rgba(176,122,67,0.34));
+  }
+  .dark .section-rule::before {
+    background:
+      radial-gradient(ellipse at center, rgba(255,246,208,0.98) 0%, rgba(220,174,122,0.96) 20%, rgba(176,122,67,0.52) 48%, rgba(176,122,67,0.10) 72%, transparent 100%),
+      linear-gradient(90deg, transparent 0%, rgba(220,174,122,0.18) 16%, #FFF0B8 50%, rgba(220,174,122,0.18) 84%, transparent 100%);
+    filter: drop-shadow(0 0 10px rgba(236,191,113,0.78)) drop-shadow(0 0 28px rgba(220,174,122,0.36));
+  }
+  nav a[aria-current="page"], nav a.active-link {
+    position: relative;
+    border-bottom-color: transparent !important;
+  }
+  nav a[aria-current="page"]::after, nav a.active-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -7px;
+    height: 7px;
+    background: linear-gradient(90deg, transparent 0%, rgba(220,174,122,0.35) 20%, #FFF0B8 50%, rgba(220,174,122,0.35) 80%, transparent 100%);
+    clip-path: polygon(0 45%, 40% 35%, 50% 16%, 60% 35%, 100% 45%, 100% 55%, 60% 65%, 50% 84%, 40% 65%, 0 55%);
+    filter: drop-shadow(0 0 8px rgba(236,191,113,0.72));
+    pointer-events: none;
+  }
+
+  /* -- Premium chrome: header/footer separators ------------------- */
+  header {
+    position: sticky;
+    border-bottom-color: transparent !important;
+    background: rgba(242,239,235,0.82) !important;
+    backdrop-filter: blur(16px) saturate(126%);
+    -webkit-backdrop-filter: blur(16px) saturate(126%);
+    box-shadow: 0 12px 36px rgba(10,10,10,0.07);
+  }
+  header::after,
+  footer::before,
+  .cta-band::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 10px;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse at center, rgba(255,244,199,0.88) 0%, rgba(236,191,113,0.66) 22%, rgba(194,130,56,0.18) 54%, transparent 78%),
+      linear-gradient(90deg, transparent 0%, rgba(220,174,122,0.22) 24%, #FFF0B8 50%, rgba(220,174,122,0.22) 76%, transparent 100%);
+    clip-path: polygon(0 47%, 42% 42%, 50% 20%, 58% 42%, 100% 47%, 100% 53%, 58% 58%, 50% 80%, 42% 58%, 0 53%);
+    filter: drop-shadow(0 0 9px rgba(236,191,113,0.58));
+    z-index: 2;
+  }
+  header::after { bottom: -5px; }
+  footer,
+  .cta-band { position: relative; border-top-color: transparent !important; }
+  footer::before,
+  .cta-band::before { top: -5px; }
+  .dark header {
+    background: rgba(10,10,10,0.70) !important;
+    border-bottom-color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: 0 16px 44px rgba(0,0,0,0.34);
+  }
+  .dark footer,
+  .dark .cta-band { border-top-color: transparent !important; border-color: transparent !important; }
+</style>
+</head>
+<body class="bg-background text-on-surface font-sans min-h-screen flex flex-col antialiased selection:bg-primary selection:text-white">
+<div class="texture-overlay" aria-hidden="true"></div>
+
+<!-- ── HEADER ───────────────────────────────────────────────────── -->
+<header class="w-full sticky top-0 z-50 border-b-2 border-primary bg-surface">
+  <div class="flex justify-between items-center w-full px-6 md:px-16 py-4 max-w-7xl mx-auto">
+    <a class="font-black text-2xl tracking-tighter text-primary" href="index.html">MEN OF CHRIST</a>
+    <nav class="hidden md:flex items-center gap-6">
+      <a class="text-primary text-label-lg uppercase tracking-widest pb-1 hover:opacity-70 transition-opacity" href="index.html">Home</a>
+      <a class="text-primary text-label-lg uppercase tracking-widest pb-1 hover:opacity-70 transition-opacity" href="events.html"><span class="lang-nl">Evenementen</span><span class="lang-en">Events</span></a>
+      <a class="text-primary text-label-lg uppercase tracking-widest pb-1 hover:opacity-70 transition-opacity" href="about.html"><span class="lang-nl">Over Ons</span><span class="lang-en">About Us</span></a>
+      <a class="text-secondary font-bold border-b-2 border-secondary text-label-lg uppercase tracking-widest pb-1" href="shop.html" aria-current="page">Shop</a>
+      <a class="text-primary text-label-lg uppercase tracking-widest pb-1 hover:opacity-70 transition-opacity" href="contact.html">Contact</a>
+    </nav>
+    <div class="hidden md:flex items-center gap-4">
+      <a href="contact.html" data-magnetic class="bg-primary text-on-primary px-6 py-4 text-label-lg uppercase tracking-widest hover:opacity-80 transition-opacity border-2 border-primary">
+        Join Fellowship
+      </a>
+      <button onclick="toggleDark()" aria-label="Toggle dark mode"
+        class="p-2 text-primary border-2 border-primary/30 hover:border-primary transition-colors">
+        <span class="material-symbols-outlined dark-icon-moon" style="font-size:20px">dark_mode</span>
+        <span class="material-symbols-outlined dark-icon-sun hidden" style="font-size:20px">light_mode</span>
+      </button>
+      <div class="flex items-center gap-2 border-l border-primary/20 pl-4 ml-2">
+        <button onclick="setLanguage('nl')" class="font-bold text-label-lg tracking-widest text-primary hover:text-secondary transition-colors" data-lang-trigger="nl">NL</button>
+        <span class="text-primary/30">|</span>
+        <button onclick="setLanguage('en')" class="font-bold text-label-lg tracking-widest text-primary hover:text-secondary transition-colors" data-lang-trigger="en">EN</button>
+      </div>
+    </div>
+    <div class="flex items-center gap-1 md:hidden">
+      <button onclick="toggleDark()" aria-label="Toggle dark mode" class="p-2 text-primary">
+        <span class="material-symbols-outlined dark-icon-moon" style="font-size:24px">dark_mode</span>
+        <span class="material-symbols-outlined dark-icon-sun hidden" style="font-size:24px">light_mode</span>
+      </button>
+      <button id="menu-toggle" class="text-primary p-2" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="material-symbols-outlined" style="font-size:32px">menu</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="flex-col bg-surface border-t-2 border-primary px-6 py-4 gap-4 md:hidden">
+    <a class="text-primary text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="index.html">Home</a>
+    <a class="text-primary text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="events.html"><span class="lang-nl">Evenementen</span><span class="lang-en">Events</span></a>
+    <a class="text-primary text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="about.html"><span class="lang-nl">Over Ons</span><span class="lang-en">About Us</span></a>
+    <a class="text-secondary font-bold text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="shop.html">Shop</a>
+    <a class="text-primary text-label-lg uppercase tracking-widest py-2 border-b border-outline-variant" href="contact.html">Contact</a>
+    <a href="contact.html" class="bg-primary text-on-primary text-label-lg uppercase tracking-widest px-6 py-4 text-center mt-2 block">
+      Join Fellowship
+    </a>
+    <div class="flex justify-center items-center gap-4 py-2 border-t border-outline-variant mt-2">
+      <button onclick="setLanguage('nl')" class="font-bold text-label-lg tracking-widest text-primary hover:text-secondary transition-colors" data-lang-trigger="nl">NL</button>
+      <span class="text-primary/30">|</span>
+      <button onclick="setLanguage('en')" class="font-bold text-label-lg tracking-widest text-primary hover:text-secondary transition-colors" data-lang-trigger="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<!-- ── MAIN ─────────────────────────────────────────────────────── -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-6 md:px-16 py-12 flex flex-col gap-12">
+
+  <div class="flex flex-col md:flex-row justify-between items-end gap-6 border-b-2 border-primary pb-3 shop-divider">
+    <div>
+      <h1 data-hero-enter class="cinematic-text font-black text-display-lg text-primary uppercase tracking-tighter leading-none">Wapenuitrusting</h1>
+      <p class="fade-up text-body-lg text-on-surface-variant max-w-2xl mt-4" data-delay="0.15">
+        <span class="lang-nl">Rust jezelf uit met kleding en accessoires ontworpen voor de moderne man van geloof. Stoer, compromisloos en gebouwd om lang mee te gaan.</span>
+        <span class="lang-en">Equip yourself with apparel and accessories designed for the modern man of faith. Bold, uncompromising, and built to last.</span>
+      </p>
+    </div>
+    <div class="fade-up flex items-center gap-2 text-on-surface-variant text-label-lg uppercase whitespace-nowrap" data-delay="0.2">
+      <span class="material-symbols-outlined">lock</span>
+      <span>
+        <span class="lang-nl">Veilig afrekenen via Stripe</span><span class="lang-en">Secure Checkout via Stripe</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- Product Grid -->
+  <section class="stagger-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" aria-label="MOC producten">
+
+    <!-- Product 1: Heavyweight Tee — Stripe link PRESERVED -->
+    <article data-stagger-item class="product-card glow-card flex flex-col border-2 border-primary bg-surface p-3 gap-3">
+      <div class="product-img-bg relative w-full aspect-[4/5] bg-surface-container overflow-hidden">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7I8CUgwG9bKF9KMYora8CkBCfXnk74B74nTcTaQrUZXvOY47H7MovOZudVHs8Yr2g8wY0J7RXMcu_Rx5E_wgVQ4R42W10dnQtdQuldnwZ0p1xB_gn9UJ1D-42eOehsCzPKI84e6HanEIkx8cwdNeccx0WcIJ0QFef-L242bmbqMImA42bZEE1O9RFHtsa_oW6VRtoKdCyBj8YAKC8Cd63102LZU0PGFqibdEW1HaP2P9y-rjntEJdL9jvyLT1LItiBarkSrwGeNEv"
+          alt="MOC Heavyweight Tee — 100% Organic Cotton"
+          class="w-full h-full object-cover mix-blend-multiply opacity-100"
+          loading="lazy"
+        />
+        <span class="absolute top-4 right-4 bg-secondary text-on-secondary px-3 py-1 text-label-lg uppercase tracking-widest">New</span>
+      </div>
+      <div class="flex flex-col gap-2 pt-2 border-t-2 border-outline-variant mt-2">
+        <div class="flex justify-between items-start">
+          <h2 class="font-black text-headline-sm text-primary uppercase">Heavyweight Tee</h2>
+          <span class="font-black text-headline-sm text-secondary">€35</span>
+        </div>
+        <p class="text-body-md text-on-surface-variant">
+          <span class="lang-nl">100% Organisch Katoen. Boxy pasvorm.</span><span class="lang-en">100% Organic Cotton. Boxy fit.</span>
+        </p>
+        <a href="https://buy.stripe.com/9AQ6qR4E79rD4eQcCC" target="_blank" rel="noopener noreferrer" data-magnetic
+          class="w-full mt-4 bg-primary text-on-primary py-3 text-label-lg uppercase tracking-widest hover:opacity-80 transition-opacity text-center block">
+          <span class="lang-nl">In winkelmand</span><span class="lang-en">Add to Cart</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- Product 2: Essential Hoodie — Stripe link PRESERVED -->
+    <article data-stagger-item class="product-card glow-card flex flex-col border-2 border-primary bg-surface p-3 gap-3">
+      <div class="product-img-bg relative w-full aspect-[4/5] bg-surface-container overflow-hidden">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPmsL3chSSaodNSyBNcZ95sRcLAg8zIkvgfjIpwLNAMK1s2tcjVErSYbJ9QQiP5Y4Lea4MtbwtFbbNsubjbIbF2Ri1m1zecDR0CefnXJ9UfqMn3cc7QVcLfuKOMoRwIyeoGMyrOdO-K5YFLflvKiP0j4_bxXcqaqyiLU6NgtBPQs_4zyAyduLcm1nwITPHF808lRDivD61rRtNxtFbthBjycO6DRXMabOH5Q6lFXFZs8ZasHyfWRxb_uc5FZw5NGb54LAFnCHsFDbo"
+          alt="MOC Essential Hoodie — Fleece-lined, Drop shoulder"
+          class="w-full h-full object-cover mix-blend-multiply opacity-100"
+          loading="lazy"
+        />
+      </div>
+      <div class="flex flex-col gap-2 pt-2 border-t-2 border-outline-variant mt-2">
+        <div class="flex justify-between items-start">
+          <h2 class="font-black text-headline-sm text-primary uppercase">Essential Hoodie</h2>
+          <span class="font-black text-headline-sm text-secondary">€65</span>
+        </div>
+        <p class="text-body-md text-on-surface-variant">
+          <span class="lang-nl">Fleece-gevoerd. Verlaagde schouder.</span><span class="lang-en">Fleece-lined. Drop shoulder.</span>
+        </p>
+        <a href="https://buy.stripe.com/8wM5nR1mz6Pzf2A7ss" target="_blank" rel="noopener noreferrer" data-magnetic
+          class="w-full mt-4 bg-primary text-on-primary py-3 text-label-lg uppercase tracking-widest hover:opacity-80 transition-opacity text-center block">
+          <span class="lang-nl">In winkelmand</span><span class="lang-en">Add to Cart</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- Product 3: Steel Sportfles — Stripe link PRESERVED -->
+    <article data-stagger-item class="product-card glow-card flex flex-col border-2 border-primary bg-surface p-3 gap-3">
+      <div class="product-img-bg relative w-full aspect-[4/5] bg-surface-container overflow-hidden">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqq_FQu0_NyrQBGKHCUXao5pLcdlTLSRX4gtrnUu7uPzveyZvmTHj17Bz7dGLldA-sl6GgpBXLpd_hdFIiBBPv88HwNujK_vhBcj-kX2ziIfi3OkUPnL9Aw1iGgVXs47G9vC3RuN5QsnSn5551Dr4ohuUPoNPTAkmQtJswWYn-kRHcE77XRralnlakF6JDS6yaMBnBBPcSztp4_NRvy9_QwPIdCX7QK2DQmu5goeWSN38zGQMYjFbUZHdckgAvwTr_EkluV_sXkm_U"
+          alt="MOC Steel Sportfles — Vacuum insulated 750ml"
+          class="w-full h-full object-cover mix-blend-multiply opacity-100"
+          loading="lazy"
+        />
+      </div>
+      <div class="flex flex-col gap-2 pt-2 border-t-2 border-outline-variant mt-2">
+        <div class="flex justify-between items-start">
+          <h2 class="font-black text-headline-sm text-primary uppercase">Steel Sportfles</h2>
+          <span class="font-black text-headline-sm text-secondary">€25</span>
+        </div>
+        <p class="text-body-md text-on-surface-variant">
+          <span class="lang-nl">Vacuüm geïsoleerd. 750ml.</span><span class="lang-en">Vacuum insulated. 750ml.</span>
+        </p>
+        <a href="https://buy.stripe.com/4gw7zHcE15HrbKQfZ0" target="_blank" rel="noopener noreferrer" data-magnetic
+          class="w-full mt-4 border-2 border-primary text-primary py-3 text-label-lg uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors text-center block">
+          <span class="lang-nl">In winkelmand</span><span class="lang-en">Add to Cart</span>
+        </a>
+      </div>
+    </article>
+  </section>
+
+  <div class="fade-up flex items-center gap-3 border-t-2 border-outline-variant pt-4 text-on-surface-variant shop-divider">
+    <span class="material-symbols-outlined">local_shipping</span>
+    <p class="text-body-md">
+      <span class="lang-nl">Alle artikelen zijn inclusief verzendkosten (NL). Betalen via iDEAL, creditcard, Apple Pay of Klarna.</span>
+      <span class="lang-en">All items include shipping (NL). Pay securely via iDEAL, Credit Card, Apple Pay or Klarna.</span>
+    </p>
+  </div>
+</main>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────── -->
+<footer class="w-full relative border-t-4 border-secondary bg-primary">
+  <div class="flex flex-col md:flex-row justify-between items-start w-full px-6 md:px-16 py-12 gap-6 max-w-7xl mx-auto">
+    <div class="flex flex-col gap-4">
+      <span class="font-black text-headline-sm text-secondary">MEN OF CHRIST</span>
+      <p class="text-body-md text-on-primary" style="opacity:0.6">© 2026 MEN OF CHRIST. <span class="lang-nl">VERANKERD IN GELOOF.</span><span class="lang-en">ANCHORED IN FAITH.</span></p>
+    </div>
+    <div class="flex flex-wrap gap-x-8 gap-y-4">
+      <a class="text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8" href="about.html"><span class="lang-nl">Missie</span><span class="lang-en">Mission</span></a>
+      <a class="text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8" href="about.html#church-identity"><span class="lang-nl">Identiteit</span><span class="lang-en">Identity</span></a>
+      <a class="text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8" href="events.html"><span class="lang-nl">Evenementen</span><span class="lang-en">Events</span></a>
+      <a class="text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8" href="shop.html">Shop</a>
+      <a class="text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8" href="contact.html">Contact</a>
+    </div>
+    <!-- Social links -->
+    <div class="flex flex-col gap-3">
+      <span class="text-label-lg uppercase text-secondary tracking-widest">Social</span>
+      <a id="moc-footer-instagram" href="https://www.instagram.com/menofchrist_rotterdam" target="_blank" rel="noopener noreferrer"
+         class="flex items-center gap-2 text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8">
+        <span class="material-symbols-outlined" style="font-size:16px">photo_camera</span>Instagram
+      </a>
+      <a id="moc-footer-youtube" href="https://www.youtube.com/c/MenOfChristRotterdam" target="_blank" rel="noopener noreferrer"
+         class="flex items-center gap-2 text-label-lg uppercase text-on-primary hover:text-secondary transition-colors" style="opacity:0.8">
+        <span class="material-symbols-outlined" style="font-size:16px">play_circle</span>YouTube
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ── CDN: Lenis + GSAP + ScrollTrigger + config.js + motion.js ──── -->
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="config.js"></script>
+<script src="motion.js"></script>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu   = document.getElementById('mobile-menu');
+  toggle.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+    toggle.querySelector('.material-symbols-outlined').textContent = isOpen ? 'close' : 'menu';
+  });
+
+  function setLanguage(lang) {
+    localStorage.setItem('moc-lang', lang);
+    window.location.reload();
+  }
+
+  function toggleDark() {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('moc-dark', isDark);
+    syncDarkIcons();
+  }
+  function syncDarkIcons() {
+    const isDark = document.documentElement.classList.contains('dark');
+    document.querySelectorAll('.dark-icon-moon').forEach(el => el.classList.toggle('hidden', isDark));
+    document.querySelectorAll('.dark-icon-sun').forEach(el  => el.classList.toggle('hidden', !isDark));
+  

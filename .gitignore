@@ -1,0 +1,8 @@
+# Local-only archive and source docs
+_archive/
+MOC-platform/
+docs/*.docx
+
+# Generated preview screenshots
+homepage-desktop.png
+homepage-mobile-menu.png
