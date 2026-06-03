@@ -4,23 +4,25 @@
  * Technische correctie #3: offline fallback via navigate-mode detectie
  */
 
-const CACHE_NAME = "moc-cache-v21";
-const OFFLINE_URL = "/offline.html";
+const CACHE_NAME = "moc-cache-v22";
+const scopeUrl = new URL(self.registration.scope);
+const toScopeUrl = path => new URL(path, scopeUrl).toString();
+const OFFLINE_URL = toScopeUrl("offline.html");
 
 // ═══════════════════════════════════════════════════
 // 1. INSTALL — Precache alle kernpagina's + offline fallback
 // ═══════════════════════════════════════════════════
 const urlsToCache = [
-  "/",
-  "/index.html",
-  "/events.html",
-  "/about.html",
-  "/shop.html",
-  "/contact.html",
-  "/bedankt.html",
-  "/assets/hero-jesus.webp",  // hero — extern bestand i.p.v. inline base64 (cachebaar)
+  "./",
+  "index.html",
+  "events.html",
+  "about.html",
+  "shop.html",
+  "contact.html",
+  "bedankt.html",
+  "assets/hero-jesus.webp",  // hero — extern bestand i.p.v. inline base64 (cachebaar)
   OFFLINE_URL  // ← Cruciaal: offline.html MOET in cache zitten vóór hij nodig is
-];
+].map(toScopeUrl);
 
 self.addEventListener("install", event => {
   event.waitUntil(

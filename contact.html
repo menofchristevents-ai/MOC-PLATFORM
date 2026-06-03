@@ -404,7 +404,7 @@
         class="flex flex-col w-full gap-6"
         name="moc-contact"
         method="POST"
-        action="/bedankt.html"
+        action="bedankt.html"
         data-netlify="true"
         netlify-honeypot="bot-field"
         id="contact-form"
@@ -610,7 +610,7 @@
 
   /* ── Service Worker ── */
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js').catch(err => console.error('[SW] Registratie mislukt:', err));
+    navigator.serviceWorker.register('sw.js').catch(err => console.error('[SW] Registratie mislukt:', err));
   }
 </script>
 </body>

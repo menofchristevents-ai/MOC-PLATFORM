@@ -568,7 +568,7 @@
   syncDarkIcons();
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js').catch(err => console.error('[SW] Registratie mislukt:', err));
+    navigator.serviceWorker.register('sw.js').catch(err => console.error('[SW] Registratie mislukt:', err));
   }
 
   /* ── Pillar slideshow ── */
