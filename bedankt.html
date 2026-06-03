@@ -116,6 +116,11 @@
     const isDark = document.documentElement.classList.toggle('dark');
     localStorage.setItem('moc-dark', isDark);
   }
+
+  /* ── Service Worker ── */
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(err => console.error('[SW] Registratie mislukt:', err));
+  }
 </script>
 </body>
 </html>

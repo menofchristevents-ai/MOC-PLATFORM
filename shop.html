@@ -416,4 +416,13 @@
     const isDark = document.documentElement.classList.contains('dark');
     document.querySelectorAll('.dark-icon-moon').forEach(el => el.classList.toggle('hidden', isDark));
     document.querySelectorAll('.dark-icon-sun').forEach(el  => el.classList.toggle('hidden', !isDark));
-  
+  }
+  syncDarkIcons();
+
+  /* -- Service Worker -- */
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(err => console.error('[SW] Registratie mislukt:', err));
+  }
+</script>
+</body>
+</html>

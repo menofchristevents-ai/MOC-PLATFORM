@@ -4,7 +4,7 @@
  * Technische correctie #3: offline fallback via navigate-mode detectie
  */
 
-const CACHE_NAME = "moc-cache-v20";
+const CACHE_NAME = "moc-cache-v21";
 const OFFLINE_URL = "/offline.html";
 
 // ═══════════════════════════════════════════════════
@@ -18,6 +18,7 @@ const urlsToCache = [
   "/shop.html",
   "/contact.html",
   "/bedankt.html",
+  "/assets/hero-jesus.webp",  // hero — extern bestand i.p.v. inline base64 (cachebaar)
   OFFLINE_URL  // ← Cruciaal: offline.html MOET in cache zitten vóór hij nodig is
 ];
 

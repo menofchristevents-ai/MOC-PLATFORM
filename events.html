@@ -336,7 +336,7 @@
       </div>
 
       <!-- Promo trailer link -->
-      <a id="moc-promo-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer"
+      <a id="moc-promo-link" href="https://www.youtube.com/c/MenOfChristRotterdam" target="_blank" rel="noopener noreferrer"
         class="fade-up group flex items-center gap-4 mt-2 text-primary hover:text-secondary transition-colors font-bold uppercase tracking-widest text-label-lg" data-delay="0.36">
         <span class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform" style="font-variation-settings:'FILL' 1">play_circle</span>
         <div>
@@ -536,8 +536,22 @@
   function toISOLocal(d, hours, minutes) {
     return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(hours)}:${pad(minutes)}`;
   }
+  // Europe/Amsterdam UTC offset for a given date: +2 during EU DST
+  // (last Sun March 01:00 UTC → last Sun Oct 01:00 UTC), else +1 (CET).
+  function amsterdamUtcOffset(d) {
+    const y = d.getFullYear();
+    const lastSundayUTC = (year, month) => {
+      const day = new Date(Date.UTC(year, month + 1, 0)); // last day of month
+      day.setUTCDate(day.getUTCDate() - day.getUTCDay()); // back to Sunday
+      day.setUTCHours(1, 0, 0, 0);                        // 01:00 UTC transition
+      return day;
+    };
+    const dstStart = lastSundayUTC(y, 2); // March
+    const dstEnd   = lastSundayUTC(y, 9); // October
+    return (d >= dstStart && d < dstEnd) ? 2 : 1;
+  }
   function toGCalDate(d, hours) {
-    const utcHours = hours - 2;
+    const utcHours = hours - amsterdamUtcOffset(d);
     return `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}T${pad(utcHours)}0000Z`;
   }
 

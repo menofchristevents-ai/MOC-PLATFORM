@@ -17,7 +17,8 @@ window.MOC_CONFIG = {
   eventbriteTicketsUrl: "https://www.eventbrite.nl/e/men-of-christ-event-tickets-zaterdag-30-mei-tickets-123456789",
 
   // YouTube promo trailer van de komende bijeenkomst
-  youtubePromoUrl:      "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  // LET OP: vervang met de echte trailer-URL. Staat nu op het kanaal als veilige fallback.
+  youtubePromoUrl:      "https://www.youtube.com/c/MenOfChristRotterdam",
 
   // ── Sociale media (eenmalig instellen) ──────────────────────────
   instagramUrl:         "https://www.instagram.com/menofchrist_rotterdam",
