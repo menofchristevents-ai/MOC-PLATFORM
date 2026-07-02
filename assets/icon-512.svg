@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="MOC icon">
+  <rect width="512" height="512" fill="#082518"/>
+  <path d="M256 62 L280 205 L422 205 L307 290 L354 430 L256 344 L158 430 L205 290 L90 205 L232 205 Z" fill="#fec345"/>
+  <text x="256" y="302" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="116" font-weight="800" fill="#fcf9f8">MOC</text>
+</svg>

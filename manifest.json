@@ -2,7 +2,7 @@
   "name": "Men of Christ",
   "short_name": "MOC",
   "description": "Een implementatiegroep voor mannen. Geen kerk, wel een broederschap. Rotterdam.",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#fcf9f8",
   "theme_color": "#082518",
@@ -10,15 +10,15 @@
   "lang": "nl",
   "icons": [
     {
-      "src": "https://placehold.co/192x192/082518/fec345?text=MOC",
+      "src": "assets/icon-192.svg",
       "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/svg+xml",
       "purpose": "maskable any"
     },
     {
-      "src": "https://placehold.co/512x512/082518/fec345?text=MOC",
+      "src": "assets/icon-512.svg",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/svg+xml",
       "purpose": "maskable any"
     }
   ],
@@ -27,15 +27,15 @@
       "name": "Events",
       "short_name": "Events",
       "description": "Bekijk aankomende MOC bijeenkomsten",
-      "url": "/events.html",
-      "icons": [{ "src": "https://placehold.co/96x96/082518/fec345?text=E", "sizes": "96x96" }]
+      "url": "events.html",
+      "icons": [{ "src": "assets/icon-192.svg", "sizes": "192x192", "type": "image/svg+xml" }]
     },
     {
       "name": "Contact",
       "short_name": "Contact",
       "description": "Neem contact op met Men of Christ",
-      "url": "/contact.html",
-      "icons": [{ "src": "https://placehold.co/96x96/082518/fec345?text=C", "sizes": "96x96" }]
+      "url": "contact.html",
+      "icons": [{ "src": "assets/icon-192.svg", "sizes": "192x192", "type": "image/svg+xml" }]
     }
   ]
 }

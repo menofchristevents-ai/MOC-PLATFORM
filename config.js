@@ -14,7 +14,7 @@
 window.MOC_CONFIG = {
   // ── Tickets & Promo ─────────────────────────────────────────────
   // Elke maand bijwerken met de nieuwe Eventbrite event-link
-  eventbriteTicketsUrl: "https://www.eventbrite.nl/e/men-of-christ-event-tickets-zaterdag-30-mei-tickets-123456789",
+  eventbriteTicketsUrl: "",
 
   // YouTube promo trailer van de komende bijeenkomst
   // LET OP: vervang met de echte trailer-URL. Staat nu op het kanaal als veilige fallback.

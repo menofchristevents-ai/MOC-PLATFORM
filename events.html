@@ -309,7 +309,7 @@
           class="bg-primary text-on-primary text-label-lg uppercase tracking-widest px-8 py-4 hover:opacity-80 transition-opacity text-center border-2 border-primary">
           <span class="lang-nl">MELD JE AAN</span><span class="lang-en">RSVP NOW</span>
         </a>
-        <a id="moc-ticket-btn" href="https://www.eventbrite.nl/e/men-of-christ-event-tickets-zaterdag-30-mei-tickets-123456789" target="_blank" rel="noopener noreferrer" data-magnetic
+        <a id="moc-ticket-btn" href="mailto:Menofchristevents@gmail.com?subject=RSVP%20MOC%20Bijeenkomst" target="_blank" rel="noopener noreferrer" data-magnetic style="display:none"
           class="premium-ticket-cta inline-flex items-center justify-center gap-3 text-label-lg uppercase tracking-widest px-8 py-4 text-center">
           <span class="material-symbols-outlined" style="font-size:20px;font-variation-settings:'FILL' 1">confirmation_number</span><span class="lang-nl">Koop Tickets</span><span class="lang-en">Buy Tickets</span>
         </a>
@@ -320,7 +320,7 @@
       </div>
 
       <!-- QR code ticket scan -->
-      <div class="fade-up ticket-glass flex items-center gap-6 mt-4 p-4 border-2 border-secondary bg-surface-container-low" data-delay="0.28">
+      <div id="ticket-qr-card" class="fade-up ticket-glass flex items-center gap-6 mt-4 p-4 border-2 border-secondary bg-surface-container-low" data-delay="0.28" style="display:none">
         <img id="ticket-qr"
           src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https%3A%2F%2Fwww.eventbrite.nl%2Fe%2Fmen-of-christ-event&bgcolor=EDE9E3&color=0A0A0A&margin=4"
           alt="QR code tickets" width="80" height="80" style="image-rendering:pixelated;"/>
@@ -578,7 +578,12 @@
     const ticketUrl = window.MOC_CONFIG.eventbriteTicketsUrl;
     if (ticketUrl) {
       const btn = document.getElementById('moc-ticket-btn');
-      if (btn) btn.href = ticketUrl;
+      if (btn) {
+        btn.href = ticketUrl;
+        btn.style.display = '';
+      }
+      const qrCard = document.getElementById('ticket-qr-card');
+      if (qrCard) qrCard.style.display = '';
       const qr = document.getElementById('ticket-qr');
       if (qr) qr.src = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(ticketUrl)}&bgcolor=EDE9E3&color=0A0A0A&margin=4`;
     }

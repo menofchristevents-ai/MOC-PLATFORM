@@ -19,6 +19,12 @@ foreach ($page in $pages) {
   if ($content -match 'href="#"') {
     $failures.Add("$page contains placeholder href=#")
   }
+  if ($content -match 'dQw4w9WgXcQ') {
+    $failures.Add("$page contains the blocked rickroll video id")
+  }
+  if ($content -match '/sw\.js|/bedankt\.html') {
+    $failures.Add("$page contains a root-relative PWA/form path")
+  }
 
   $localLinks = [regex]::Matches($content, 'href="([^"#]*(?:\.html|\.js|\.json))"')
   foreach ($match in $localLinks) {
@@ -40,6 +46,49 @@ foreach ($asset in $assets) {
 $config = Get-Content -LiteralPath (Join-Path $root 'config.js') -Raw
 foreach ($key in @('eventbriteTicketsUrl', 'youtubePromoUrl', 'instagramUrl', 'youtubeChannelUrl')) {
   if ($config -notmatch $key) { $failures.Add("config.js missing $key") }
+}
+if ($config -match '123456789|dQw4w9WgXcQ') {
+  $failures.Add("config.js contains a known placeholder URL")
+}
+
+$manifestPath = Join-Path $root 'manifest.json'
+try {
+  $manifestRaw = Get-Content -LiteralPath $manifestPath -Raw
+  $manifest = $manifestRaw | ConvertFrom-Json
+  if ($manifestRaw -match 'placehold\.co') {
+    $failures.Add("manifest.json contains external placeholder icons")
+  }
+  if ($manifest.start_url -match '^/') {
+    $failures.Add("manifest.json start_url must be relative for subpath deploys")
+  }
+  foreach ($icon in $manifest.icons) {
+    if ($icon.src -match '^(https?:|/)') {
+      $failures.Add("manifest.json icon must be a relative local asset: $($icon.src)")
+    } elseif (-not (Test-Path (Join-Path $root $icon.src))) {
+      $failures.Add("manifest.json icon file missing: $($icon.src)")
+    }
+  }
+  foreach ($shortcut in $manifest.shortcuts) {
+    if ($shortcut.url -match '^/') {
+      $failures.Add("manifest.json shortcut URL must be relative: $($shortcut.url)")
+    }
+    foreach ($icon in $shortcut.icons) {
+      if ($icon.src -match '^(https?:|/)') {
+        $failures.Add("manifest.json shortcut icon must be relative: $($icon.src)")
+      } elseif (-not (Test-Path (Join-Path $root $icon.src))) {
+        $failures.Add("manifest.json shortcut icon file missing: $($icon.src)")
+      }
+    }
+  }
+} catch {
+  $failures.Add("manifest.json is not valid JSON: $($_.Exception.Message)")
+}
+
+$sw = Get-Content -LiteralPath (Join-Path $root 'sw.js') -Raw
+foreach ($precache in @('config.js', 'motion.js', 'manifest.json', 'assets/icon-192.svg', 'assets/icon-512.svg')) {
+  if ($sw -notmatch [regex]::Escape($precache)) {
+    $failures.Add("sw.js should precache $precache")
+  }
 }
 
 if ($failures.Count -gt 0) {
